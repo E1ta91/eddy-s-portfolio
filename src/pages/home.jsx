@@ -13,6 +13,7 @@ const Home = () => {
     const handleNavClick = (section) => {
         setActiveSection(section);
     };
+
     return (
         <div className='bg-[#151312] flex flex-col justify-center items-center'>
             <Navbar onNavClick={handleNavClick} />
@@ -24,10 +25,13 @@ const Home = () => {
                         </div>
 
                         <div className='text-black flex justify-center items-center flex-col space-y-3 '>
-
                             <h1 className=''>YAKUBU EDWAED FAAKO</h1>
 
-                            <p className='text-center text-[#6A6B81]'>Mechanical Engineer specializing in digital <br /> fabrication, 3D design, and <br /> product development.</p>
+                            <p className='text-center text-[#6A6B81]'>
+                                Mechanical Engineer specializing in digital <br />
+                                fabrication, 3D design, and <br />
+                                product development.
+                            </p>
 
                             <div className='flex space-x-4 '>
                                 <a href="https://www.linkedin.com/in/yakubu-edward-faako-9a374612b" target="_blank" rel="noopener noreferrer">
@@ -45,39 +49,32 @@ const Home = () => {
                             </div>
                         </div>
 
-                        <div className="relative inline-block  ">
-                                <button className="relative z-10 h-8 w-[14vw]  bg-black border border-orange-500 text-white rounded-lg flex items-center justify-center space-x-2">
-
-                                    {/* Ping indicator positioned to the left of the text */}
-                                     <span className="relative flex h-3 w-3 mr-2">
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                                        <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
-                                    </span> 
-
-                                    Available for work
-                                </button>
-
-                                
-                            </div>
+                        <div className="relative inline-block">
+                            <button
+                                className="relative z-10 h-8 w-[14vw] bg-black border border-orange-500 text-white rounded-lg flex items-center justify-center space-x-2"
+                                onClick={() => handleNavClick('contact')} // Update section on button click
+                            >
+                                {/* Ping indicator positioned to the left of the text */}
+                                <span className="relative flex h-3 w-3 mr-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+                                </span>
+                                Available for work
+                            </button>
+                        </div>
                     </div>
                 </header>
 
                 <main className='space-y-20 flex-1 overflow-auto'>
-
                     {activeSection === '/' && <About />}
                     {activeSection === 'experience' && <Experience />}
                     {activeSection === 'skills' && <Skills />}
                     {activeSection === 'projects' && <Projects />}
                     {activeSection === 'contact' && <Contact />}
-
                 </main>
-
-
             </div>
-
         </div>
-
     )
 }
 
-export default Home
+export default Home;
