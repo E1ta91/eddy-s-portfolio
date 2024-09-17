@@ -18,7 +18,7 @@ const Home = () => {
             <Navbar onNavClick={handleNavClick} />
             <div className='flex space-x-20 pt-16 p-28 '>
                 <header className=''>
-                    <div className='bg-white pt-5 w-[23vw] h-[67vh] bg-fixed  rounded-lg shadow-2xl flex flex-col items-center space-y-4'>
+                    <div className='bg-white pt-5 w-[23vw] h-[75vh] bg-fixed  rounded-lg shadow-2xl flex flex-col items-center space-y-6'>
                         <div>
                             <img className='w-[200px] rounded-lg' src={eds} alt="img" />
                         </div>
@@ -44,6 +44,21 @@ const Home = () => {
                                 </a>
                             </div>
                         </div>
+
+                        <div className="relative inline-block  ">
+                                <button className="relative z-10 h-8 w-[14vw]  bg-black border border-orange-500 text-white rounded-lg flex items-center justify-center space-x-2">
+
+                                    {/* Ping indicator positioned to the left of the text */}
+                                     <span className="relative flex h-3 w-3 mr-2">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+                                    </span> 
+
+                                    Available for work
+                                </button>
+
+                                
+                            </div>
                     </div>
                 </header>
 

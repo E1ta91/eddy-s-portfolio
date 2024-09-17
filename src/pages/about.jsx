@@ -44,17 +44,17 @@ const About = () => {
 
       <div className=' flex space-x-10' >
         <div className='space-y-2'>
-        <h1 className='text-6xl font-bold text-white'> +{count5} </h1>
+        <h1 className='text-6xl font-bold text-white'> {count5}+ </h1>
         <p className='text-[#998F8F]'>YEARS OF EXPERIENCE</p>
         </div>
 
         <div className='space-y-2'>
-        <h1 className='text-6xl font-bold text-white'> +{count10} </h1>
+        <h1 className='text-6xl font-bold text-white'> {count10}+ </h1>
         <p  className='text-[#998F8F]' >PROJECTS COMPLETED</p>
         </div>
 
         <div className='space-y-2'>
-        <h1 className='text-6xl font-bold text-white'> +{count20} </h1>
+        <h1 className='text-6xl font-bold text-white'> {count20}+ </h1>
         <p  className='text-[#998F8F]' >WORLDWIDE CLIENTS</p>
         </div>
       

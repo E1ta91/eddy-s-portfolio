@@ -19,6 +19,7 @@ export default {
       boxShadow: {
         'colored-shadow': '0 0 15px 5px rgba(192, 192, 192, 0.5) ', // Adjust color and size as needed
       },
+    
     },
   },
   plugins: [],
