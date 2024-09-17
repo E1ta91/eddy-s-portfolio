@@ -1,0 +1,64 @@
+import React, { useState } from 'react'
+import Navbar from '../components/navbar'
+import eds from '../assets/images/eds.jpg'
+import { InstagramIcon, Linkedin, Mail, Twitter } from 'lucide-react'
+import About from './about'
+import Experience from './experience'
+import Skills from './skills'
+
+const Home = () => {
+    const [activeSection, setActiveSection] = useState('/');
+    const handleNavClick = (section) => {
+        setActiveSection(section);
+    };
+    return (
+        <div className='bg-[#151312] flex flex-col justify-center items-center'>
+            <Navbar onNavClick={handleNavClick} />
+            <div className='flex space-x-20 pt-16 p-28 '>
+                <header className=''>
+                    <div className='bg-white pt-5 w-[23vw] h-[67vh] bg-fixed  rounded-lg shadow-2xl flex flex-col items-center space-y-4'>
+                        <div>
+                            <img className='w-[200px] rounded-lg' src={eds} alt="img" />
+                        </div>
+
+                        <div className='text-black flex justify-center items-center flex-col space-y-3 '>
+
+                            <h1 className=''>YAKUBU EDWAED FAAKO</h1>
+
+                            <p className='text-center text-[#6A6B81]'>Mechanical Engineer specializing in digital <br /> fabrication, 3D design, and <br /> product development.</p>
+
+                            <div className='flex space-x-4 '>
+                                <a href="https://www.linkedin.com/in/yakubu-edward-faako-9a374612b" target="_blank" rel="noopener noreferrer">
+                                    <Linkedin className=' w-10 h-6 text-orange-500' />
+                                </a>
+                                <a href="https://x.com/edwardfaako" target="_blank" rel="noopener noreferrer">
+                                    <Twitter className=' w-10 h-6  text-orange-500' />
+                                </a>
+                                <a href="mailto:email@example.com" target="_blank" rel="noopener noreferrer">
+                                    <Mail className=' w-10 h-6  text-orange-500' />
+                                </a>
+                                <a href="https://www.instagram.com/phaako?utm_source=qr&igsh=MWkwdzluNThxdmRsbw==" target="_blank" rel="noopener noreferrer">
+                                    <InstagramIcon className='w-10 h-6 text-orange-500' />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <main className='space-y-20 flex-1 overflow-auto'>
+
+                    {activeSection === '/' && <About />}
+                    {activeSection === 'experience' && <Experience />}
+                    {activeSection === 'skills' && <Skills />}
+
+                </main>
+
+
+            </div>
+
+        </div>
+
+    )
+}
+
+export default Home
