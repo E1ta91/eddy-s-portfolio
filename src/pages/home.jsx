@@ -5,6 +5,8 @@ import { InstagramIcon, Linkedin, Mail, Twitter } from 'lucide-react'
 import About from './about'
 import Experience from './experience'
 import Skills from './skills'
+import Projects from './projects'
+import Contact from './contact'
 
 const Home = () => {
     const [activeSection, setActiveSection] = useState('/');
@@ -50,6 +52,8 @@ const Home = () => {
                     {activeSection === '/' && <About />}
                     {activeSection === 'experience' && <Experience />}
                     {activeSection === 'skills' && <Skills />}
+                    {activeSection === 'projects' && <Projects />}
+                    {activeSection === 'contact' && <Contact />}
 
                 </main>
 

@@ -17,7 +17,7 @@ export default {
         'moving-shadow': 'move-shadow 4s linear infinite',
       },
       boxShadow: {
-        'colored-shadow': '0 0 15px 5px rgba(255, 165, 0, 0.5)', // Adjust color and size as needed
+        'colored-shadow': '0 0 15px 5px rgba(192, 192, 192, 0.5) ', // Adjust color and size as needed
       },
     },
   },
