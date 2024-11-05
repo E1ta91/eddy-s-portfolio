@@ -30,7 +30,7 @@ const Experience = () => {
             <h1 className='text-white text-2xl'>Teaching Assistant</h1>
             <p className='text-[#afa3a5]'>University of Energy and Natural Resources, Sunyani-Ghana </p>
             <p className='text-[#8d8082]'> Assisted a senior lecturer in marking and recording student assessments, organized tutorials to help students improve their understanding of course material, and collaborated with final-year students to develop their project prototypes.</p>
-            <p  className='text-[#8d8082]'>August 2023 - PRESENT</p>
+            <p  className='text-[#8d8082]'>SEMPTEMBER 2019 - AUGUST 2020</p>
         </div>
     </div>
   )
