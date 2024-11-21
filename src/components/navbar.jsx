@@ -5,8 +5,8 @@ const Navbar = ({ onNavClick }) => {
     
   
   return (
-    <div className='pt-5 flex justify-center items-center'>
-        <div className=' hidden md:hidden lg:flex justify-evenly space-x-40 items-center bg-[#666262] w-[70vw] h-[7vh] rounded-lg '>
+    <div className='pt-10  flex justify-center items-center'>
+        <div className='fixed z-10 hidden md:hidden lg:flex justify-evenly space-x-40 items-center  bg-[#666262] w-[70vw] h-[9vh] rounded-lg '>
             <h1 className='text-xl'>FAAKO</h1>
             <div >
                 <nav>

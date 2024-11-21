@@ -9,19 +9,19 @@ const K = {
         {
             image: print,
             title: ' 3D Belt Printer',
-            path: '/printer',
+            path: 'https://fabacademy.org/2023/labs/energylab/machines/belty-v2/',
             icon: <ArrowUpRight/>
         },
         {
             image: zorro,
             title: 'Zorro the wire cutter',
-            path: '/cutter',
+            path: 'https://fabacademy.org/2023/labs/energylab/machines/zorro/',
             icon: <ArrowUpRight/>
         },
         {
             image: garden,
             title: 'Smart balcony garden (SBG)',
-            path: '/garden',
+            path: 'https://fabacademy.org/2022/labs/energylab/students/edward-faako/projects/final-project/',
             icon: <ArrowUpRight/>
         },
         {

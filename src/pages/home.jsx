@@ -15,11 +15,11 @@ const Home = () => {
     };
 
     return (
-        <div className='bg-[#151312] flex flex-col justify-center items-center'>
-            <Navbar onNavClick={handleNavClick} />
-            <div className='flex space-x-20 pt-16 p-28 '>
-                <header className=''>
-                    <div className='bg-white pt-5 w-[23vw] h-[75vh] bg-fixed  rounded-lg shadow-2xl flex flex-col items-center space-y-6'>
+        <div className='bg-[#151312] pt-6 flex flex-col justify-center items-center'>
+            <Navbar  onNavClick={handleNavClick} />
+            <div className='flex space-x-[25rem] pt-16 p-28 '>
+                <header className=' w-2/5 h-screen fixed'>
+                    <div className='bg-white pt-5 w-[23vw] h-[75vh]  rounded-lg shadow-2xl flex flex-col items-center space-y-6'>
                         <div>
                             <img className='w-[200px] rounded-lg' src={eds} alt="img" />
                         </div>
@@ -65,7 +65,7 @@ const Home = () => {
                     </div>
                 </header>
 
-                <main className='space-y-20 flex-1 overflow-auto'>
+                <main className='space-y-20 flex-1 w-3/5 '>
                     {activeSection === '/' && <About />}
                     {activeSection === 'experience' && <Experience />}
                     {activeSection === 'skills' && <Skills />}

@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 const Projects = () => {
   return (
     <div className="flex space-y-10 flex-col">
+       <h1 className='text-white text-4xl pl-3 font-bold'>PROJECTS </h1>
       {K.PROJECTS.map((project, index) => (
         <Link to={project.path} key={index}>
           <div className="relative flex items-center bg-transparent rounded-lg hover:bg-gray-400 hover:bg-opacity-5 p-4 transition duration-300 w-[40vw]">
