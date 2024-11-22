@@ -11,7 +11,6 @@ function App() {
       element: <Home/>
     },
 
-  
     {
       path: "drone",
       element: <Drone/>
