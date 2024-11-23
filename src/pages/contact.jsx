@@ -16,7 +16,7 @@ const Contact = () => {
                                 id="name"
                                 name="name"
                                 placeholder="Name"
-                                className='w-56 rounded-lg h-12 bg-[#1A1A1A] pl-5 text-white border border-gray-600'
+                                className='w-[39vw] md:w-56  rounded-lg h-12 bg-[#1A1A1A] pl-5 text-white border border-gray-600'
                             />
                         </div>
 
@@ -26,7 +26,7 @@ const Contact = () => {
                                 id="email"
                                 name="email"
                                 placeholder="Email"
-                                className='w-56 rounded-lg h-12 bg-[#1A1A1A] pl-5 text-white border border-gray-600'
+                                className='w-[39vw] md:w-56 rounded-lg h-12 bg-[#1A1A1A] pl-5 text-white border border-gray-600'
                             />
                         </div>
                     </div>
@@ -36,7 +36,7 @@ const Contact = () => {
                             id="message"
                             name="message"
                             placeholder="Write a message..."
-                            className='h-48 p-4 rounded-lg bg-[#1A1A1A] text-white border border-gray-600'
+                            className='h-48 p-4 md:w-[33.6vw] rounded-lg bg-[#1A1A1A] text-white border border-gray-600'
                         ></textarea>
                     </div>
 
