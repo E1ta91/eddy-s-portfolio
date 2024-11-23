@@ -50,7 +50,7 @@ const Skills = () => {
                 </div>
 
                 <div className="relative inline-block p-4">
-                    <button className="relative z-10 h-9 text-center bg-black border border-orange-500 text-white rounded-lg 
+                    <button className="relative z-10 h-11 text-center bg-black border border-orange-500 text-white rounded-lg 
         w-[25vw] sm:w-[20vw] md:w-[18vw] lg:w-[14vw] text-sm sm:text-xs md:text-sm lg:text-base">
                         CNC Machining
                     </button>
