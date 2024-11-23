@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <div className='space-y-6 p-4'> {/* Added padding to ensure content has some space from the edges */}
+        <div className='space-y-6 p-3'> {/* Added padding to ensure content has some space from the edges */}
             <h1 className='text-6xl text-white'>Let's Connect!</h1>
 
             <div className='space-y-4'>
@@ -16,7 +16,7 @@ const Contact = () => {
                                 id="name"
                                 name="name"
                                 placeholder="Name"
-                                className='w-[39vw] md:w-56  rounded-lg h-12 bg-[#1A1A1A] pl-5 text-white border border-gray-600'
+                                className='w-[41vw] md:w-56  rounded-lg h-12 bg-[#1A1A1A] pl-5 text-white border border-gray-600'
                             />
                         </div>
 
@@ -26,7 +26,7 @@ const Contact = () => {
                                 id="email"
                                 name="email"
                                 placeholder="Email"
-                                className='w-[39vw] md:w-56 rounded-lg h-12 bg-[#1A1A1A] pl-5 text-white border border-gray-600'
+                                className='w-[41vw] md:w-56 rounded-lg h-12 bg-[#1A1A1A] pl-5 text-white border border-gray-600'
                             />
                         </div>
                     </div>

@@ -12,13 +12,13 @@ const Home = () => {
     const [activeSection, setActiveSection] = useState('/');
     const handleNavClick = (section) => {
         setActiveSection(section);
-    };
-
+    }
     return (
         <div>
-            <div className='bg-[#151312] flex-col justify-center items-center '>
+            <div className='bg-[#151312] flex-col justify-center items-center px-32 '>
                 <Navbar onNavClick={handleNavClick} />
-                <div className=' hidden sm:block  space-x-[25rem] pt-16 p-28 '>
+                <div className=' hidden sm:block  space-x-[25rem]  p-20 '>
+
                     <header className='  w-2/5 h-screen fixed'>
                         <div className='bg-white pt-5 w-[23vw] h-[75vh]  rounded-lg shadow-2xl flex flex-col items-center space-y-6'>
                             <div>
@@ -76,83 +76,84 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="bg-[#151312] min-h-screen w-full lg:hidden md:hidden overflow-y-auto">
-    {/* Mobile Screen */}
-    {activeSection === '/' ? (
-        <div className="flex flex-col space-y-6">
-            {/* Mobile Header */}
-            <header className="h-screen flex justify-center items-center">
-                <div className="bg-white rounded-lg shadow-2xl flex flex-col items-center space-y-6 p-4">
-                    <div>
-                        <img className="w-[180px] rounded-lg" src={eds} alt="img" />
-                    </div>
 
-                    <div className="text-black flex justify-center items-center flex-col space-y-3">
-                        <h1 className="text-center">YAKUBU EDWARD FAAKO</h1>
+            <div className="bg-[#151312] min-h-screen w-full lg:hidden md:hidden overflow-y-auto pt-10">
+  {/* Mobile Screen */}
+  {activeSection === '/' ? (
+    <div className="flex flex-col space-y-5"> {/* Reduced space between items */}
+      {/* Mobile Header */}
+      <header className="flex justify-center items-center"> {/* Adjusted height and padding */}
+        <div className="bg-white rounded-lg shadow-2xl flex flex-col items-center space-y-4 p-4"> {/* Reduced space-y */}
+          <div>
+            <img className="w-[180px] rounded-lg" src={eds} alt="img" />
+          </div>
 
-                        <p className="text-center text-[#6A6B81]">
-                            Mechanical Engineer specializing in digital <br />
-                            fabrication, 3D design, and <br />
-                            product development.
-                        </p>
+          <div className="text-black flex justify-center items-center flex-col space-y-2"> {/* Reduced space-y */}
+            <h1 className="text-center">YAKUBU EDWARD FAAKO</h1>
 
-                        <div className="flex space-x-4">
-                            <a
-                                href="https://www.linkedin.com/in/yakubu-edward-faako-9a374612b"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Linkedin className="w-10 h-6 text-orange-500" />
-                            </a>
-                            <a
-                                href="https://x.com/edwardfaako"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Twitter className="w-10 h-6 text-orange-500" />
-                            </a>
-                            <a
-                                href="mailto:email@example.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Mail className="w-10 h-6 text-orange-500" />
-                            </a>
-                            <a
-                                href="https://www.instagram.com/phaako?utm_source=qr&igsh=MWkwdzluNThxdmRsbw=="
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <InstagramIcon className="w-10 h-6 text-orange-500" />
-                            </a>
-                        </div>
-                    </div>
+            <p className="text-center text-[#6A6B81]">
+              Mechanical Engineer specializing in digital <br />
+              fabrication, 3D design, and <br />
+              product development.
+            </p>
 
-                    <div className="relative inline-block">
-                        <button
-                            className="relative z-10 h-8 w-[50vw] bg-black border border-orange-500 text-white rounded-lg flex items-center justify-center space-x-2"
-                            onClick={() => handleNavClick('contact')}
-                        >
-                            <span className="relative flex h-3 w-3 mr-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
-                            </span>
-                            Available for work
-                        </button>
-                    </div>
-                </div>
-            </header>
+            <div className="flex space-x-4">
+              <a
+                href="https://www.linkedin.com/in/yakubu-edward-faako-9a374612b"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="w-10 h-6 text-orange-500" />
+              </a>
+              <a
+                href="https://x.com/edwardfaako"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Twitter className="w-10 h-6 text-orange-500" />
+              </a>
+              <a
+                href="mailto:email@example.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Mail className="w-10 h-6 text-orange-500" />
+              </a>
+              <a
+                href="https://www.instagram.com/phaako?utm_source=qr&igsh=MWkwdzluNThxdmRsbw=="
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramIcon className="w-10 h-6 text-orange-500" />
+              </a>
+            </div>
+          </div>
+
+          <div className="relative inline-block">
+            <button
+              className="relative z-10 h-8 w-[50vw] bg-black border border-orange-500 text-white rounded-lg flex items-center justify-center space-x-2"
+              onClick={() => handleNavClick('contact')}
+            >
+              <span className="relative flex h-3 w-3 mr-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+              </span>
+              Available for work
+            </button>
+          </div>
         </div>
-    ) : (
-        // Show selected section content
-        <main className="flex flex-col space-y-12 p-6">
-            {activeSection === 'about' && <About />}
-            {activeSection === 'experience' && <Experience />}
-            {activeSection === 'skills' && <Skills />}
-            {activeSection === 'projects' && <Projects />}
-            {activeSection === 'contact' && <Contact />}
-        </main>
-    )}
+      </header>
+    </div>
+  ) : (
+    // Show selected section content
+    <main className="flex flex-col space-y-8 p-4"> {/* Reduced space-y and padding */}
+      {activeSection === 'about' && <About />}
+      {activeSection === 'experience' && <Experience />}
+      {activeSection === 'skills' && <Skills />}
+      {activeSection === 'projects' && <Projects />}
+      {activeSection === 'contact' && <Contact />}
+    </main>
+  )}
 </div>
 
 
