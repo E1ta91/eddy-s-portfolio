@@ -2,12 +2,16 @@ import { Briefcase, Contact, Folder, HomeIcon, Phone, UserCog2Icon, Wrench } fro
 import React, { useState } from 'react'
 
 const Navbar = ({ onNavClick }) => {
+    const [hoveredIcon, setHoveredIcon] = useState('');
+
+
+
 
 
     return (
-        <div className='pt-10 flex justify-center items-center'>
+        <div className=' flex justify-center items-center pt-6'>
 
-            <div className='fixed z-10 hidden md:hidden lg:flex justify-evenly space-x-40 items-center  bg-[#666262] w-[70vw] h-[9vh] rounded-lg '>
+            <div className='fixed z-10  hidden md:hidden lg:flex justify-evenly space-x-40 items-center  bg-[#666262] w-[70vw] h-[9vh] rounded-lg '>
                 <h1 className='text-xl'>FAAKO</h1>
                 <div >
                     <nav>
@@ -23,15 +27,93 @@ const Navbar = ({ onNavClick }) => {
                 </div>
             </div>
 
-            <div className=''>
+            <div className="">
                 <nav>
-                    <ul className='flex lg:hidden md:hidden text-white bg-[#666262]  w-[100vw] h-[9vh] justify-evenly items-center'>
-                        <li><button className='text-white' onClick={() => onNavClick('/')}><HomeIcon /></button></li>
-                        <li><button className='text-white' onClick={() => onNavClick('about')}> <UserCog2Icon /> </button></li>
-                        <li><button onClick={() => onNavClick('skills')}> <Wrench/> </button> </li>
-                        <li><button onClick={() => onNavClick('experience')}><Briefcase /></button></li>
-                        <li><button onClick={() => onNavClick('projects')}><Folder /></button></li>
-                        <li><button onClick={() => onNavClick('contact')}><Phone /></button></li>
+                    <ul className="flex lg:hidden md:hidden text-white bg-[#666262] w-[100vw] h-[9vh] justify-evenly items-center">
+                        <li
+                            className="relative"
+                            onMouseEnter={() => setHoveredIcon('Home')}
+                            onMouseLeave={() => setHoveredIcon('')}
+                        >
+                            <button className="text-white" onClick={() => onNavClick('/')}>
+                                <HomeIcon />
+                            </button>
+                            {hoveredIcon === 'Home' && (
+                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
+                                    Home
+                                </span>
+                            )}
+                        </li>
+                        <li
+                            className="relative"
+                            onMouseEnter={() => setHoveredIcon('About')}
+                            onMouseLeave={() => setHoveredIcon('')}
+                        >
+                            <button className="text-white" onClick={() => onNavClick('about')}>
+                                <UserCog2Icon />
+                            </button>
+                            {hoveredIcon === 'About' && (
+                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
+                                    About
+                                </span>
+                            )}
+                        </li>
+                        <li
+                            className="relative"
+                            onMouseEnter={() => setHoveredIcon('Skills')}
+                            onMouseLeave={() => setHoveredIcon('')}
+                        >
+                            <button className="text-white" onClick={() => onNavClick('skills')}>
+                                <Wrench />
+                            </button>
+                            {hoveredIcon === 'Skills' && (
+                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
+                                    Skills
+                                </span>
+                            )}
+                        </li>
+                        <li
+                            className="relative"
+                            onMouseEnter={() => setHoveredIcon('Experience')}
+                            onMouseLeave={() => setHoveredIcon('')}
+                        >
+                            <button className="text-white" onClick={() => onNavClick('experience')}>
+                                <Briefcase />
+                            </button>
+                            {hoveredIcon === 'Experience' && (
+                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
+                                    Experience
+                                </span>
+                            )}
+                        </li>
+                        <li
+                            className="relative"
+                            onMouseEnter={() => setHoveredIcon('Projects')}
+                            onMouseLeave={() => setHoveredIcon('')}
+                        >
+                            <button className="text-white" onClick={() => onNavClick('projects')}>
+                                <Folder />
+                            </button>
+                            {hoveredIcon === 'Projects' && (
+                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
+                                    Projects
+                                </span>
+                            )}
+                        </li>
+                        <li
+                            className="relative"
+                            onMouseEnter={() => setHoveredIcon('Contact')}
+                            onMouseLeave={() => setHoveredIcon('')}
+                        >
+                            <button className="text-white" onClick={() => onNavClick('contact')}>
+                                <Phone />
+                            </button>
+                            {hoveredIcon === 'Contact' && (
+                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
+                                    Contact
+                                </span>
+                            )}
+                        </li>
                     </ul>
                 </nav>
             </div>

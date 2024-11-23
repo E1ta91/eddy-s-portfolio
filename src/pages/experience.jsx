@@ -12,7 +12,7 @@ const Experience = () => {
             <h1 className='text-white text-2xl'>Senior CAD Engineer</h1>
             <p className='text-[#afa3a5]'>Wahu Mobility, Accra-Ghana </p>
             <p className='text-[#afa3a5]'>Used SolidWorks to create 3D models, 2D drawings, and technical documentation for mechanical and electrical components, conducting simulations and FEA to evaluate functionality and cost-effectiveness. I collaborate with cross-functional teams to meet customer and regulatory requirements, update designs for improved performance and reduced costs, manage design documentation and version control, and stay current with industry advancements in CAD software and engineering practices.</p>
-            <p  className='text-[#8d8082]'>AUGUST 2023 - PRESENT</p>
+            <p  className='text-[#8d8082]'>AUGUST 2023 - NOVEMBER 2024</p>
         </div>
         <div className='space-y-4' >
             <h1 className='text-white text-2xl'>EnergyLab manager</h1>
