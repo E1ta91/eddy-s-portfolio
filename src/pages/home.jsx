@@ -26,7 +26,7 @@ const Home = () => {
                             </div>
 
                             <div className='text-black flex justify-center items-center flex-col space-y-3 '>
-                                <h1 className=''>YAKUBU EDWAED FAAKO</h1>
+                                <h1 className=''>YAKUBU EDWARD FAAKO</h1>
 
                                 <p className='text-center text-[#6A6B81]'>
                                     Mechanical Engineer specializing in digital <br />
