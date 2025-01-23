@@ -4,10 +4,6 @@ import React, { useState } from 'react'
 const Navbar = ({ onNavClick }) => {
     const [hoveredIcon, setHoveredIcon] = useState('');
 
-
-
-
-
     return (
         <div className=' flex justify-center items-center pt-0 md:pt-10'>
 

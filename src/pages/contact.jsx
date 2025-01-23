@@ -1,6 +1,35 @@
 import React from 'react';
 
 const Contact = () => {
+
+        const [result, setResult] = React.useState("");
+      
+        const onSubmit = async (event) => {
+          event.preventDefault();
+          setResult("Sending....");
+          const formData = new FormData(event.target);
+      
+          formData.append("access_key", "fb7bb008-65fd-40d3-8dee-c41618d4f84d");
+      
+          const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+          });
+      
+          const data = await response.json();
+      
+          if (data.success) {
+            setResult("Form Submitted Successfully");
+            event.target.reset();
+          } else {
+            console.log("Error", data);
+            setResult(data.message);
+          }
+        };
+
+
+
+
     return (
         <div className='space-y-6 p-3'> {/* Added padding to ensure content has some space from the edges */}
             <h1 className='text-6xl text-white'>Let's Connect!</h1>
@@ -8,7 +37,7 @@ const Contact = () => {
             <div className='space-y-4'>
                 <h1 className='text-white'>Message Me</h1>
 
-                <form className='space-y-3'>
+                <form onSubmit={onSubmit} className='space-y-3'>
                     <div className='flex space-x-3'>
                         <div className='flex flex-col space-y-2'>
                             <input
@@ -40,7 +69,7 @@ const Contact = () => {
                         ></textarea>
                     </div>
 
-                    <button className='w-[34vw] h-[7vh] bg-orange-400 rounded-lg'>Send Message</button>
+                    <button type='submit' className='w-[34vw] h-[7vh] bg-orange-400 rounded-lg'>Send Message</button>
                 </form>
             </div>
         </div>
