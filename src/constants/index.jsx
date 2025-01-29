@@ -3,6 +3,9 @@ import print from '../assets/images/print.jpg'
 import zorro from '../assets/images/zorro.jpg'
 import garden from '../assets/images/garden.jpg'
 import drone from '../assets/images/drone.jpg'
+import plasticr1 from '../assets/images/plasticr1.jpg'
+import shreder from '../assets/images/shreder.png'
+
 
 const K = {
     PROJECTS: [
@@ -26,8 +29,21 @@ const K = {
         },
         {
             image: drone,
-            title: 'Drone',
+            title: 'Payload Transport Drone for Construction Sites and Farms',
             path: '/drone',
+            icon: <ArrowUpRight/>
+        },
+        {
+            image: plasticr1,
+            title: 'Plastic shredding and pelletizer production line',
+            path: '/recycling',
+            icon: <ArrowUpRight/>
+        },
+
+        {
+            image: shreder,
+            title: 'SHREDDER',
+            path: '/shredder',
             icon: <ArrowUpRight/>
         },
     ]
