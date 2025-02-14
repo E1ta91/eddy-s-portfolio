@@ -35,7 +35,9 @@ const ecar = () => {
                   
                   </div>
 
-              
+              <div className=''>
+
+              </div>
 
                   <div className='md:flex flex-grow w-[65vw] md:w[40vw] ml-30 md:m-[9rem] mt-[5rem] space-y-6 md:space-x-6'>
 
