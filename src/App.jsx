@@ -4,6 +4,7 @@ import Home from './pages/home'
 import Drone from './pages/drone'
 import Recycling from './pages/recycling'
 import Shredder from './pages/shredder'
+import Ecar from './pages/ecar'
 
 function App() {
   const router = createBrowserRouter([
@@ -26,6 +27,10 @@ function App() {
     {
       path: "shredder",
       element: <Shredder/>
+    },
+    {
+      path: "ecar",
+      element: <Ecar/>
     },
   ])
 

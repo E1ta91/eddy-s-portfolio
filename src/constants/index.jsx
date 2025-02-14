@@ -5,7 +5,7 @@ import garden from '../assets/images/garden.jpg'
 import drone from '../assets/images/drone.jpg'
 import plasticr1 from '../assets/images/plasticr1.jpg'
 import shreder from '../assets/images/shreder.png'
-
+import Cariso from '../assets/images/Cariso.png'
 
 const K = {
     PROJECTS: [
@@ -44,6 +44,12 @@ const K = {
             image: shreder,
             title: 'SHREDDER',
             path: '/shredder',
+            icon: <ArrowUpRight/>
+        },
+        {
+            image: Cariso,
+            title: 'Electric Multi-Purpose Vehicle',
+            path: '/ecar',
             icon: <ArrowUpRight/>
         },
     ]
