@@ -23,26 +23,26 @@ const K = {
         },
         {
             image: garden,
-            title: 'Smart balcony garden (SBG)',
+            title: 'Smart balcony garden ',
             path: 'https://fabacademy.org/2022/labs/energylab/students/edward-faako/projects/final-project/',
             icon: <ArrowUpRight/>
         },
         {
             image: drone,
-            title: 'Payload Transport Drone for Construction Sites and Farms',
+            title: 'Payload Transport Drone ',
             path: '/drone',
             icon: <ArrowUpRight/>
         },
         {
             image: plasticr1,
-            title: 'Plastic shredding and pelletizer production line',
+            title: 'Plastic shredding and pelletizer ',
             path: '/recycling',
             icon: <ArrowUpRight/>
         },
 
         {
             image: shreder,
-            title: 'SHREDDER',
+            title: 'Shredder',
             path: '/shredder',
             icon: <ArrowUpRight/>
         },

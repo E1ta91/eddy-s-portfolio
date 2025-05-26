@@ -1,113 +1,119 @@
 import React from 'react';
 
 const Contact = () => {
-
     const [result, setResult] = React.useState("");
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        setResult("Sending....");
+        setResult("Sending...");
         const formData = new FormData(event.target);
 
         formData.append("access_key", "fb7bb008-65fd-40d3-8dee-c41618d4f84d");
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if (data.success) {
-            setResult("Message Sent");
-            event.target.reset();
-
-            setTimeout(() => {
-                setResult("");
-            }, 5000);
-
-        } else {
-            console.log("Error", data);
-            setResult(data.message);
-
-            setTimeout(() => {
-                setResult("");
-            }, 5000);
+            if (data.success) {
+                setResult("Message sent successfully!");
+                event.target.reset();
+            } else {
+                setResult(data.message || "Error sending message");
+            }
+        } catch (error) {
+            setResult("Network error. Please try again.");
+        } finally {
+            setTimeout(() => setResult(""), 5000);
         }
     };
 
-
-
-
     return (
-        <div>
-            {/* Success Message */}
+        <div className="min-h-screen bg-[#151312] flex flex-col items-center py-1 px-4 sm:px-6 lg:px-8">
+            {/* Success/Error Message */}
             {result && (
-                <p className=" border w-60 h-11 rounded-lg bg-white shadow-white shadow-md text-[#FB923C] pt-1 font-medium text-center">
+                <div className={`mb-8 w-full max-w-md p-4 rounded-lg text-center font-medium ${
+                    result.includes("success") 
+                        ? "bg-green-100 text-green-800 border border-green-200"
+                        : "bg-red-100 text-red-800 border border-red-200"
+                }`}>
                     {result}
-                </p>
+                </div>
             )}
 
+            <div className="w-full max-w-4xl space-y-8">
+                <div className="text-center">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">
+                        Let's Connect!
+                    </h1>
+                    <p className="text-lg text-gray-300">
+                        Have a project in mind or want to collaborate? Send me a message.
+                    </p>
+                </div>
 
-
-
-            <div className='space-y-6 p-3'> {/* Added padding to ensure content has some space from the edges */}
-
-
-                <h1 className='text-6xl text-white'>Let's Connect!</h1>
-
-                <div className='space-y-4'>
-                    <h1 className='text-white'>Message Me</h1>
-
-
-
-                    <form onSubmit={onSubmit} className='space-y-3'>
-                        <div className='flex space-x-3'>
-                            <div className='flex flex-col space-y-2'>
+                <div className="bg-[#1e1c1d] rounded-xl shadow-lg p-6 sm:p-8 md:p-10 border border-gray-700">
+                    <form onSubmit={onSubmit} className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                                    Name
+                                </label>
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
-                                    placeholder="Name"
-                                    className='w-[41vw] md:w-56  rounded-lg h-12 bg-[#1A1A1A] pl-5 text-white border border-gray-600'
+                                    placeholder="Your name"
+                                    required
+                                    className="w-full px-4 py-3 rounded-lg bg-[#2a2829] text-white border border-gray-600 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:outline-none transition"
                                 />
                             </div>
 
-                            <div className='flex flex-col space-y-2'>
+                            <div>
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                                    Email
+                                </label>
                                 <input
-                                    type="text"
+                                    type="email"
                                     id="email"
                                     name="email"
-                                    placeholder="Email"
-                                    className='w-[41vw] md:w-56 rounded-lg h-12 bg-[#1A1A1A] pl-5 text-white border border-gray-600'
+                                    placeholder="your.email@example.com"
+                                    required
+                                    className="w-full px-4 py-3 rounded-lg bg-[#2a2829] text-white border border-gray-600 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:outline-none transition"
                                 />
                             </div>
                         </div>
 
-                        <div className='flex flex-col '>
+                        <div>
+                            <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
+                                Message
+                            </label>
                             <textarea
                                 id="message"
                                 name="message"
-                                placeholder="Write a message..."
-                                className='h-48 p-4 md:w-[33.6vw] rounded-lg bg-[#1A1A1A] text-white border border-gray-600'
+                                rows="6"
+                                placeholder="Write your message here..."
+                                required
+                                className="w-full px-4 py-3 rounded-lg bg-[#2a2829] text-white border border-gray-600 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:outline-none transition"
                             ></textarea>
                         </div>
 
-                        {/* <!-- Hidden input for the predefined subject --> */}
-                        <input type="hidden" name="subject" value="You have a message" />
+                        <input type="hidden" name="subject" value="New message from portfolio" />
 
-
-                        <button type='submit' className='w-[34vw] h-[7vh] bg-orange-400 rounded-lg'>Send Message</button>
-
-
-
-
+                        <div className="pt-2">
+                            <button
+                                type="submit"
+                                className="w-full md:w-auto px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg shadow-md transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-[#1e1c1d]"
+                            >
+                                Send Message
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
-
-
     );
 }
 
