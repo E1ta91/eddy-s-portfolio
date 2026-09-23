@@ -2,28 +2,55 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import K from '../constants';
+import { useEngineDock } from '../context/EngineDockContext';
 
-const INTERVAL_MS = 5000;
+const ENGINE_HOLD_MS = 10000;
+const OTHER_HOLD_MS = 5000;
+
+const ENGINE_SLIDE = {
+  id: 'v6-engine',
+  type: 'engine',
+  title: 'V6 Internal Combustion Engine',
+  subtitle:
+    'Scroll-driven assembly study — finishes assembling behind Contact and stays there.',
+  path: '/projects',
+};
 
 const Projects = () => {
-  const projects = K.PROJECTS;
+  const projects = [ENGINE_SLIDE, ...K.PROJECTS];
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const { setDockEl, setCarouselIndex, focusedSection } = useEngineDock();
+
+  const holdMs = index === 0 ? ENGINE_HOLD_MS : OTHER_HOLD_MS;
+
+  // Reset to engine whenever Projects becomes the focused section
+  // (including scroll-up from Contact → Projects)
+  useEffect(() => {
+    if (focusedSection === 'projects') {
+      setIndex(0);
+    }
+  }, [focusedSection]);
 
   useEffect(() => {
-    if (paused || projects.length <= 1) return undefined;
-    const id = setInterval(() => {
+    setCarouselIndex(index);
+  }, [index, setCarouselIndex]);
+
+  useEffect(() => {
+    if (paused || projects.length <= 1 || focusedSection !== 'projects') return undefined;
+    const id = setTimeout(() => {
       setIndex((prev) => (prev + 1) % projects.length);
-    }, INTERVAL_MS);
-    return () => clearInterval(id);
-  }, [paused, projects.length]);
+    }, holdMs);
+    return () => clearTimeout(id);
+  }, [paused, projects.length, focusedSection, holdMs, index]);
 
   const go = (dir) => {
     setIndex((prev) => (prev + dir + projects.length) % projects.length);
   };
 
   const project = projects[index];
-  const isExternal = project.path.startsWith('http');
+  const isEngine = project.type === 'engine';
+  const isExternal = !isEngine && project.path.startsWith('http');
 
   return (
     <div className="section-shell">
@@ -50,18 +77,29 @@ const Projects = () => {
         onBlur={() => setPaused(false)}
       >
         <div className="grid lg:grid-cols-[1.35fr_1fr]">
-          <div className="relative aspect-[16/11] overflow-hidden bg-surface lg:aspect-auto lg:min-h-[420px]">
-            {projects.map((item, i) => (
-              <img
-                key={item.title}
-                src={item.image}
-                alt={item.title.trim()}
-                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-                  i === index ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
-            ))}
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--canvas)]/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[var(--surface-elevated)]/40" />
+          <div className="relative aspect-[16/11] overflow-hidden bg-[#0c1014] lg:aspect-auto lg:min-h-[420px]">
+            <div
+              ref={setDockEl}
+              className={`absolute inset-0 transition-opacity duration-700 ${
+                isEngine ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+
+            {projects.map((item, i) => {
+              if (item.type === 'engine') return null;
+              return (
+                <img
+                  key={item.title}
+                  src={item.image}
+                  alt={item.title.trim()}
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+                    i === index ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              );
+            })}
+
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--canvas)]/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[var(--surface-elevated)]/30" />
           </div>
 
           <div className="flex flex-col justify-between gap-8 p-6 sm:p-8 lg:p-10">
@@ -69,14 +107,16 @@ const Projects = () => {
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-accent">
                 {String(index + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
               </p>
-              <h3 className="mt-3 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+              <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
                 {project.title.trim()}
               </h3>
-              {project.subtitle && (
-                <p className="mt-3 text-muted">{project.subtitle}</p>
-              )}
+              {project.subtitle && <p className="mt-3 text-muted">{project.subtitle}</p>}
 
-              {isExternal ? (
+              {isEngine ? (
+                <p className="btn-ghost mt-6 inline-flex cursor-default opacity-80">
+                  Assembled on scroll
+                </p>
+              ) : isExternal ? (
                 <a
                   href={project.path}
                   target="_blank"
@@ -117,7 +157,7 @@ const Projects = () => {
               <div className="flex flex-wrap justify-end gap-1.5">
                 {projects.map((item, i) => (
                   <button
-                    key={item.title}
+                    key={item.id || item.title}
                     type="button"
                     aria-label={`Go to ${item.title.trim()}`}
                     aria-current={i === index}
@@ -130,13 +170,15 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Progress bar for the 5s cycle */}
             <div className="absolute bottom-0 left-0 right-0 h-0.5 overflow-hidden bg-line">
               <div
-                key={index}
+                key={`${index}-${holdMs}-${focusedSection}`}
                 className="h-full origin-left bg-accent"
                 style={{
-                  animation: `carousel-progress ${INTERVAL_MS}ms linear forwards`,
+                  animation:
+                    focusedSection === 'projects'
+                      ? `carousel-progress ${holdMs}ms linear forwards`
+                      : 'none',
                   animationPlayState: paused ? 'paused' : 'running',
                 }}
               />

@@ -63,11 +63,14 @@ const Contact = () => {
 
           <form
             onSubmit={onSubmit}
-            className="border border-line bg-[var(--surface-elevated)] p-6 sm:p-8"
+            className="border border-line bg-[var(--surface-elevated)]/90 p-6 sm:p-8"
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label htmlFor="name" className="mb-1.5 block font-mono text-xs uppercase tracking-[0.14em] text-muted">
+                <label
+                  htmlFor="name"
+                  className="mb-1.5 block font-mono text-xs uppercase tracking-[0.14em] text-muted"
+                >
                   Name
                 </label>
                 <input
@@ -76,11 +79,14 @@ const Contact = () => {
                   name="name"
                   placeholder="Your name"
                   required
-                  className="w-full border border-line bg-canvas px-4 py-3 text-ink placeholder:text-muted/60 outline-none transition focus:border-accent"
+                  className="w-full border border-line bg-canvas/80 px-4 py-3 text-ink placeholder:text-muted/60 outline-none transition focus:border-accent"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="mb-1.5 block font-mono text-xs uppercase tracking-[0.14em] text-muted">
+                <label
+                  htmlFor="email"
+                  className="mb-1.5 block font-mono text-xs uppercase tracking-[0.14em] text-muted"
+                >
                   Email
                 </label>
                 <input
@@ -89,13 +95,16 @@ const Contact = () => {
                   name="email"
                   placeholder="you@example.com"
                   required
-                  className="w-full border border-line bg-canvas px-4 py-3 text-ink placeholder:text-muted/60 outline-none transition focus:border-accent"
+                  className="w-full border border-line bg-canvas/80 px-4 py-3 text-ink placeholder:text-muted/60 outline-none transition focus:border-accent"
                 />
               </div>
             </div>
 
             <div className="mt-5">
-              <label htmlFor="message" className="mb-1.5 block font-mono text-xs uppercase tracking-[0.14em] text-muted">
+              <label
+                htmlFor="message"
+                className="mb-1.5 block font-mono text-xs uppercase tracking-[0.14em] text-muted"
+              >
                 Message
               </label>
               <textarea
@@ -104,7 +113,7 @@ const Contact = () => {
                 rows="6"
                 placeholder="Tell me about the project..."
                 required
-                className="w-full resize-y border border-line bg-canvas px-4 py-3 text-ink placeholder:text-muted/60 outline-none transition focus:border-accent"
+                className="w-full resize-y border border-line bg-canvas/80 px-4 py-3 text-ink placeholder:text-muted/60 outline-none transition focus:border-accent"
               />
             </div>
 
