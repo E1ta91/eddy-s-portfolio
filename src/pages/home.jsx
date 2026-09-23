@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Navbar from '../components/navbar';
 import eds from '../assets/images/eds.jpg';
-import { InstagramIcon, Linkedin, Mail, Twitter } from 'lucide-react';
+import ME from '../assets/images/ME.jpeg';
+import { Linkedin, Mail, } from 'lucide-react';
 import About from './about';
 import Experience from './experience';
 import Skills from './skills';
@@ -26,7 +27,7 @@ const Home = () => {
           <div className="bg-white rounded-lg shadow-2xl flex flex-col items-center space-y-6 p-6 h-full">
             <img
               className="w-[180px] lg:w-[200px] rounded-lg"
-              src={eds}
+              src={ME}
               alt="Yakubu Edward Faako"
             />
 
@@ -43,18 +44,12 @@ const Home = () => {
                   href="https://www.linkedin.com/in/yakubu-edward-faako-9a374612b"
                   icon={<Linkedin className="w-5 h-5 lg:w-6 lg:h-6 text-orange-500" />}
                 />
+               
                 <SocialIcon
-                  href="https://x.com/edwardfaako"
-                  icon={<Twitter className="w-5 h-5 lg:w-6 lg:h-6 text-orange-500" />}
-                />
-                <SocialIcon
-                  href="mailto:email@example.com"
+                  href="mailto:faako.edward@gmail.com"
                   icon={<Mail className="w-5 h-5 lg:w-6 lg:h-6 text-orange-500" />}
                 />
-                <SocialIcon
-                  href="https://www.instagram.com/phaako?utm_source=qr&igsh=MWkwdzluNThxdmRsbw=="
-                  icon={<InstagramIcon className="w-5 h-5 lg:w-6 lg:h-6 text-orange-500" />}
-                />
+              
               </div>
             </div>
 
@@ -66,7 +61,7 @@ const Home = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
               </span>
-              Available for work
+              Available
             </button>
           </div>
         </aside>
@@ -104,18 +99,12 @@ const Home = () => {
                   href="https://www.linkedin.com/in/yakubu-edward-faako-9a374612b"
                   icon={<Linkedin className="w-5 h-5 text-orange-500" />}
                 />
+              
                 <SocialIcon
-                  href="https://x.com/edwardfaako"
-                  icon={<Twitter className="w-5 h-5 text-orange-500" />}
-                />
-                <SocialIcon
-                  href="mailto:email@example.com"
+                  href="mailto:faako.edward@gmail.com"
                   icon={<Mail className="w-5 h-5 text-orange-500" />}
                 />
-                <SocialIcon
-                  href="https://www.instagram.com/phaako?utm_source=qr&igsh=MWkwdzluNThxdmRsbw=="
-                  icon={<InstagramIcon className="w-5 h-5 text-orange-500" />}
-                />
+              
               </div>
             </div>
 
@@ -127,7 +116,7 @@ const Home = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
               </span>
-              Available for work
+              Available
             </button>
           </header>
         )}

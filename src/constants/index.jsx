@@ -1,11 +1,13 @@
-import { ArrowUpRight } from 'lucide-react'
-import print from '../assets/images/print.jpg'
-import zorro from '../assets/images/zorro.jpg'
-import garden from '../assets/images/garden.jpg'
-import drone from '../assets/images/drone.jpg'
-import plasticr1 from '../assets/images/plasticr1.jpg'
-import shreder from '../assets/images/shreder.png'
-import Cariso from '../assets/images/Cariso.png'
+import { ArrowUpRight } from 'lucide-react';
+import print from '../assets/images/print.jpg';
+import zorro from '../assets/images/zorro.jpg';
+import garden from '../assets/images/garden.jpg';
+import drone from '../assets/images/drone.jpg';
+import plasticr1 from '../assets/images/plasticr1.jpg';
+import shreder from '../assets/images/shreder.png';
+import Cariso from '../assets/images/Cariso.png';
+import kart from '../assets/images/kart.png';
+
 
 const K = {
     PROJECTS: [
@@ -50,6 +52,12 @@ const K = {
             image: Cariso,
             title: 'Electric Multi-Purpose Vehicle',
             path: '/ecar',
+            icon: <ArrowUpRight/>
+        },
+        {
+            image: kart,
+            title: 'Recreational Buggy Design for Ghanaian Roads',
+            path: '/kart',
             icon: <ArrowUpRight/>
         },
     ]

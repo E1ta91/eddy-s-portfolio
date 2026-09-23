@@ -5,8 +5,8 @@ const Skills = () => {
         "CAD", "Mechanical Design", "Arc Welding", "3D Printing",
         "Soldering", "CNC Machining", "Laser Cutting", "PCB Design",
         "PCB Milling", "Power Tools Operation", "SolidWorks",
-        "Altair Studio", "AutoCAD", "FlatCAM", "RD Works",
-        "Lightburn", "MSC Adams", "Arduino"
+        "KiCAD", "AutoCAD", "FlatCAM", "RD Works",
+        "Lightburn", "MATLAB", "Arduino", "DFM", "DFA", "GD&T", "CAM"
     ];
 
     return (

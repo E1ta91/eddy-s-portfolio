@@ -5,6 +5,8 @@ import Drone from './pages/drone'
 import Recycling from './pages/recycling'
 import Shredder from './pages/shredder'
 import Ecar from './pages/ecar'
+import Kart from './pages/kart'
+import Amn from './pages/amn'
 
 function App() {
   const router = createBrowserRouter([
@@ -31,6 +33,14 @@ function App() {
     {
       path: "ecar",
       element: <Ecar/>
+    },
+    {
+      path: "kart",
+      element: <Kart/>
+    },
+    {
+      path: "amn",
+      element: <Amn/>
     },
   ])
 

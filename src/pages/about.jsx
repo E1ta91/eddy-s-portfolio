@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 const About = () => {
   const [count5, setCount5] = useState(0);
   const [count10, setCount10] = useState(0);
-  const [count6, setCount6] = useState(0);
+  const [count7, setCount7] = useState(0);
 
   useEffect(() => {
     if (count5 < 5) {
@@ -25,13 +25,13 @@ const About = () => {
   }, [count10]);
 
   useEffect(() => {
-    if (count6 < 6) {
-      const interval6 = setInterval(() => {
-        setCount6(prevCount => prevCount + 1);
-      }, 50); // 1-second interval for 20
-      return () => clearInterval(interval6);
+    if (count7 < 7) {
+      const interval7 = setInterval(() => {
+        setCount7(prevCount => prevCount + 1);
+      }, 50); // 1-second interval for 7
+      return () => clearInterval(interval7);
     }
-  }, [count6]);
+  }, [count7]);
 
   return (
     <div className='flex flex-col space-y-9 overflow-x-hidden'>
@@ -44,7 +44,7 @@ const About = () => {
 
       <div className="flex justify-between  w-full">
         <div className="flex-1  space-y-2">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white">{count6}+</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-white">{count7}+</h1>
           <p className="text-[#998F8F] text-xs sm:text-sm">YEARS OF EXPERIENCE</p>
         </div>
 
