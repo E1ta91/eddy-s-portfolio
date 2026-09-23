@@ -77,6 +77,11 @@
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-10;
   }
 
+  .text-panel {
+    @apply rounded-xl p-5 backdrop-blur-sm sm:p-6;
+    background-color: color-mix(in srgb, var(--canvas) 80%, transparent);
+  }
+
   .section-label {
     @apply font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent;
   }

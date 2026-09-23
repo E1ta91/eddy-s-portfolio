@@ -28,7 +28,7 @@ const About = () => {
   return (
     <div className="section-shell">
       <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-        <div>
+        <div className="text-panel">
           <p className="section-label mb-3">About</p>
           <h2 className="section-title">
             Building things that

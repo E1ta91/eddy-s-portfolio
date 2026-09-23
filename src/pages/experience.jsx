@@ -1,5 +1,23 @@
 const ROLES = [
   {
+    title: 'Mechanical Design Engineer',
+    dates: 'Jan 2026 — Present',
+    org: 'EdNasonaa Renewable Power, Accra — Ghana',
+    body: 'Used SolidWorks to create 3D models, 2D drawings, and technical documentation for mechanical and electrical components, conducting simulations and FEA to evaluate functionality and cost-effectiveness. Collaborated with cross-functional teams to meet customer and regulatory requirements, updated designs for performance and cost, managed documentation and version control, and stayed current with CAD and engineering practices.',
+  },
+  {
+    title: 'Mechanical Technician',
+    dates: 'Nov 2025 — Dec 2025',
+    org: 'DuraPlast LTD, Accra — Ghana',
+    body: 'Used SolidWorks to create 3D models, 2D drawings, and technical documentation for mechanical and electrical components, conducting simulations and FEA to evaluate functionality and cost-effectiveness. Collaborated with cross-functional teams to meet customer and regulatory requirements, updated designs for performance and cost, managed documentation and version control, and stayed current with CAD and engineering practices.',
+  },
+  {
+    title: 'Mechanical Engineer',
+    dates: 'Jan 2025 — Oct 2025',
+    org: 'EdNasonaa Renewable Power, Accra — Ghana',
+    body: 'Used SolidWorks to create 3D models, 2D drawings, and technical documentation for mechanical and electrical components, conducting simulations and FEA to evaluate functionality and cost-effectiveness. Collaborated with cross-functional teams to meet customer and regulatory requirements, updated designs for performance and cost, managed documentation and version control, and stayed current with CAD and engineering practices.',
+  },
+  {
     title: 'Senior CAD Engineer',
     dates: 'Aug 2023 — Nov 2024',
     org: 'Wahu Mobility, Accra — Ghana',
@@ -28,23 +46,23 @@ const ROLES = [
 const Experience = () => {
   return (
     <div className="section-shell">
-      <div className="mb-12 max-w-2xl">
+      <div className="text-panel mb-12 max-w-2xl">
         <p className="section-label mb-3">Experience</p>
-        <h2 className="section-title">6+ years shaping products &amp; labs</h2>
+        <h2 className="section-title">7+ years shaping products &amp; labs</h2>
         <div className="spec-rule mt-5 max-w-[8rem]" />
       </div>
 
       <ol className="relative space-y-0 border-l border-line pl-6 sm:pl-8">
         {ROLES.map((role, index) => (
           <li
-            key={role.title}
+            key={`${role.title}-${role.dates}`}
             className="group relative grid gap-3 border-b border-line py-8 first:pt-0 last:border-b-0 sm:grid-cols-[10rem_1fr] sm:gap-8"
           >
             <div className="absolute -left-[calc(0.375rem+5px)] top-10 hidden h-2.5 w-2.5 rounded-full border-2 border-accent bg-canvas sm:block sm:-left-[calc(2rem+5px)]" />
             <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted sm:pt-1">
               {role.dates}
             </p>
-            <div>
+            <div className="text-panel">
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 <h3 className="font-display text-xl font-semibold text-ink sm:text-2xl">
                   {role.title}

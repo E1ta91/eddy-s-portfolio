@@ -20,7 +20,7 @@ const SKILL_GROUPS = [
 const Skills = () => {
   return (
     <div className="section-shell">
-      <div className="mb-12 max-w-2xl">
+      <div className="text-panel mb-12 max-w-2xl">
         <p className="section-label mb-3">Capabilities</p>
         <h2 className="section-title">Tools of the trade</h2>
         <div className="spec-rule mt-5 max-w-[8rem]" />
@@ -31,7 +31,7 @@ const Skills = () => {
 
       <div className="grid gap-8 sm:grid-cols-2">
         {SKILL_GROUPS.map((group) => (
-          <div key={group.title}>
+          <div key={group.title} className="text-panel">
             <h3 className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
               {group.title}
             </h3>

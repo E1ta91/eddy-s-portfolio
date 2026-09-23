@@ -9,29 +9,29 @@ const absoluteTop = (el) => {
 
 /**
  * Linear scroll → assemble progress (no easing).
- * Finishes as Contact settles in view; stays at 1 through the rest of Contact / page end.
+ * Starts when About enters view; finishes as Contact settles. Hero stays at 0.
  */
 export const computeEngineScrollProgress = () => {
   if (typeof window === 'undefined') return 0;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return 1;
 
-  const skills = document.getElementById('skills');
-  const projects = document.getElementById('projects');
+  const about = document.getElementById('about');
   const contact = document.getElementById('contact');
-  if (!skills || !projects || !contact) return 0;
+  if (!about || !contact) return 0;
 
   const docTop = window.scrollY || window.pageYOffset;
   const vh = window.innerHeight;
 
-  const skillsAt = absoluteTop(skills);
-  const projectsAt = absoluteTop(projects);
+  const aboutAt = absoluteTop(about);
   const contactAt = absoluteTop(contact);
-  // Fully assembled once Contact has settled near the top of the viewport
-  const finishAt = Math.max(contactAt - vh * 0.05, projectsAt);
 
-  const start = Math.max(skillsAt - vh * 0.35, 0);
-  const span = Math.max(finishAt - start, 1);
-  return clamp01((docTop - start) / span);
+  // Begin as About approaches the upper viewport; stay 0 through Hero
+  const start = Math.max(aboutAt - vh * 0.85, 0);
+  // Fully assembled once Contact has settled near the nav
+  const finishAt = Math.max(contactAt - 120, start + 1);
+
+  if (docTop < start) return 0;
+  return clamp01((docTop - start) / (finishAt - start));
 };
 
 export const useEngineScrollProgress = () => {

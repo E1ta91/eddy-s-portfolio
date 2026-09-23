@@ -59,19 +59,20 @@ const CadV6Engine = forwardRef(function CadV6Engine(_, ref) {
     const centerSpread = new THREE.Box3().setFromPoints(centers).getSize(new THREE.Vector3()).length();
     const assemblyCoordsOk = centerSpread > unionSize.length() * 0.15;
 
-    // Explode vectors in native mm
+    // Explode vectors in native mm — large enough that parts start off-screen left/right
     const explode = centers.map((center, i) => {
       const local = center.clone().sub(origin);
       const bias = parts[i].bias;
       const dir = local.clone();
-      if (dir.lengthSq() < 1e-6) dir.set(0, 1, 0);
+      if (dir.lengthSq() < 1e-6) dir.set(bias.x || 0, bias.y || 1, bias.z || 0);
       else dir.normalize();
-      dir.x += bias.x;
-      dir.y += bias.y;
-      dir.z += bias.z;
+      // Emphasize horizontal entry: weight bias.x harder before normalize
+      dir.x += bias.x * 1.8;
+      dir.y += bias.y * 0.55;
+      dir.z += bias.z * 0.55;
       dir.normalize();
       const partDiag = sizes[i].length();
-      const dist = (80 + partDiag * 0.45) * bias.mul; // mm
+      const dist = (280 + partDiag * 0.85) * bias.mul; // mm — wide side entry
       return dir.multiplyScalar(dist);
     });
 

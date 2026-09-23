@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import K from '../constants';
 import { useEngineDock } from '../context/EngineDockContext';
+
+const AssembledEnginePreview = lazy(() => import('../components/engine/AssembledEnginePreview'));
 
 const ENGINE_HOLD_MS = 10000;
 const OTHER_HOLD_MS = 5000;
@@ -12,7 +14,7 @@ const ENGINE_SLIDE = {
   type: 'engine',
   title: 'V6 Internal Combustion Engine',
   subtitle:
-    'Scroll-driven assembly study — finishes assembling behind Contact and stays there.',
+    'Scroll-driven assembly study — parts fly in from the sides and finish under Contact.',
   path: '/projects',
 };
 
@@ -20,21 +22,15 @@ const Projects = () => {
   const projects = [ENGINE_SLIDE, ...K.PROJECTS];
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const { setDockEl, setCarouselIndex, focusedSection } = useEngineDock();
+  const { focusedSection } = useEngineDock();
 
   const holdMs = index === 0 ? ENGINE_HOLD_MS : OTHER_HOLD_MS;
 
-  // Reset to engine whenever Projects becomes the focused section
-  // (including scroll-up from Contact → Projects)
   useEffect(() => {
     if (focusedSection === 'projects') {
       setIndex(0);
     }
   }, [focusedSection]);
-
-  useEffect(() => {
-    setCarouselIndex(index);
-  }, [index, setCarouselIndex]);
 
   useEffect(() => {
     if (paused || projects.length <= 1 || focusedSection !== 'projects') return undefined;
@@ -55,7 +51,7 @@ const Projects = () => {
   return (
     <div className="section-shell">
       <div className="mb-10 flex flex-col gap-6 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
-        <div className="max-w-2xl">
+        <div className="text-panel max-w-2xl">
           <p className="section-label mb-3">Selected work</p>
           <h2 className="section-title">Projects</h2>
           <div className="spec-rule mt-5 max-w-[8rem]" />
@@ -79,17 +75,22 @@ const Projects = () => {
         <div className="grid lg:grid-cols-[1.35fr_1fr]">
           <div className="relative aspect-[16/11] overflow-hidden bg-[#0c1014] lg:aspect-auto lg:min-h-[420px]">
             <div
-              ref={setDockEl}
               className={`absolute inset-0 transition-opacity duration-700 ${
                 isEngine ? 'opacity-100' : 'opacity-0'
               }`}
-            />
+            >
+              {isEngine && (
+                <Suspense fallback={<div className="h-full w-full bg-[#0c1014]" />}>
+                  <AssembledEnginePreview />
+                </Suspense>
+              )}
+            </div>
 
             {projects.map((item, i) => {
               if (item.type === 'engine') return null;
               return (
                 <img
-                  key={item.title}
+                  key={item.id || item.title}
                   src={item.image}
                   alt={item.title.trim()}
                   className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${

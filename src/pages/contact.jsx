@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useEngineDock } from '../context/EngineDockContext';
 
 const Contact = () => {
   const [result, setResult] = useState('');
+  const { setContactDockEl } = useEngineDock();
+
+  useEffect(() => () => setContactDockEl(null), [setContactDockEl]);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -33,25 +37,34 @@ const Contact = () => {
     <div className="section-shell">
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <div>
-          <p className="section-label mb-3">Contact</p>
-          <h2 className="section-title">Let&apos;s build something</h2>
-          <div className="spec-rule mt-5 max-w-[8rem]" />
-          <p className="mt-5 max-w-md text-base leading-relaxed text-muted">
-            Have a product, prototype, or CAD challenge in mind? Reach out — open to collaborations
-            and freelance work.
-          </p>
-          <a
-            href="mailto:faako.edward@gmail.com"
-            className="mt-6 inline-block font-mono text-sm text-accent transition hover:underline"
-          >
-            faako.edward@gmail.com
-          </a>
+          <div className="text-panel max-w-md">
+            <p className="section-label mb-3">Contact</p>
+            <h2 className="section-title">Let&apos;s build something</h2>
+            <div className="spec-rule mt-5 max-w-[8rem]" />
+            <p className="mt-5 text-base leading-relaxed text-muted">
+              Have a product, prototype, or CAD challenge in mind? Reach out — open to collaborations
+              and freelance work.
+            </p>
+            <a
+              href="mailto:faako.edward@gmail.com"
+              className="mt-6 inline-block font-mono text-sm text-accent transition hover:underline"
+            >
+              faako.edward@gmail.com
+            </a>
+          </div>
+
+          {/* Desktop-only dock: assembled engine under the email on the left */}
+          <div
+            ref={setContactDockEl}
+            className="relative mt-6 hidden min-h-[220px] w-full max-w-md aspect-[16/11] overflow-hidden lg:block"
+            aria-hidden="true"
+          />
         </div>
 
         <div>
           {result && (
             <div
-              className={`mb-4 rounded-md border px-4 py-3 text-sm ${
+              className={`mb-4 rounded-xl border px-4 py-3 text-sm ${
                 result.includes('success')
                   ? 'border-accent/40 bg-accent-soft text-ink'
                   : 'border-red-500/40 bg-red-500/10 text-ink'
@@ -63,7 +76,7 @@ const Contact = () => {
 
           <form
             onSubmit={onSubmit}
-            className="border border-line bg-[var(--surface-elevated)]/90 p-6 sm:p-8"
+            className="rounded-xl border border-line bg-[var(--surface-elevated)]/90 p-6 backdrop-blur-sm sm:p-8"
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <div>

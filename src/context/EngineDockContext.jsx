@@ -3,24 +3,21 @@ import { createContext, useContext, useMemo, useState } from 'react';
 const EngineDockContext = createContext(null);
 
 export const EngineDockProvider = ({ children }) => {
-  const [dockEl, setDockEl] = useState(null);
-  const [carouselIndex, setCarouselIndex] = useState(0);
-  /** 'projects' | 'contact' | null — which section currently owns the engine */
+  /** Desktop Contact dock target under the email link */
+  const [contactDockEl, setContactDockEl] = useState(null);
+  /** 'about' | 'experience' | 'skills' | 'projects' | 'contact' | null */
   const [focusedSection, setFocusedSection] = useState(null);
 
   const value = useMemo(
     () => ({
-      dockEl,
-      setDockEl,
-      carouselIndex,
-      setCarouselIndex,
+      contactDockEl,
+      setContactDockEl,
       focusedSection,
       setFocusedSection,
-      // Back-compat aliases used by Projects carousel timing
       projectsVisible: focusedSection === 'projects',
       contactVisible: focusedSection === 'contact',
     }),
-    [dockEl, carouselIndex, focusedSection]
+    [contactDockEl, focusedSection]
   );
 
   return (

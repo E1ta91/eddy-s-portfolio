@@ -113,13 +113,13 @@ const Home = () => {
           <main>
             <section
               id="about"
-              className="scroll-mt-24 border-t border-line bg-[var(--canvas)]/75 py-20 backdrop-blur-[2px] sm:py-24"
+              className="scroll-mt-24 border-t border-line bg-[var(--canvas)]/40 py-20 sm:py-24"
             >
               <About />
             </section>
             <section
               id="experience"
-              className="scroll-mt-24 border-t border-line bg-[var(--canvas)]/70 py-20 backdrop-blur-[2px] sm:py-24"
+              className="scroll-mt-24 border-t border-line bg-[var(--canvas)]/35 py-20 sm:py-24"
             >
               <Experience />
             </section>
