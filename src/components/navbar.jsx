@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import logo from '../assets/images/logos.png';
 
 const NAV_LINKS = [
   { id: 'about', label: 'About' },
@@ -51,9 +52,17 @@ const Navbar = () => {
         <button
           type="button"
           onClick={() => goTo('hero')}
-          className="font-display text-base font-semibold tracking-tight text-ink transition hover:text-accent sm:text-lg"
+          aria-label="Edward Faako Yakubu — Home"
+          className="group flex items-center gap-2.5 transition hover:opacity-90"
         >
-          EFY
+          <img
+            src={logo}
+            alt=""
+            className="h-9 w-9 rounded-md object-cover sm:h-10 sm:w-10"
+          />
+          <span className="hidden font-display text-sm font-semibold tracking-tight text-ink sm:inline">
+            Edward Faako
+          </span>
         </button>
 
         <nav className="hidden items-center gap-1 md:flex">
