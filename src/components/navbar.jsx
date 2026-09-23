@@ -1,152 +1,111 @@
-import { Briefcase, Contact, Folder, HomeIcon, Phone, UserCog2Icon, Wrench } from 'lucide-react'
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
-const Navbar = ({ onNavClick }) => {
-    const [hoveredIcon, setHoveredIcon] = useState('');
+const NAV_LINKS = [
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
+];
 
-    return (
-        <div className=' flex justify-center items-center pt-0 md:pt-10'>
+const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState('hero');
+  const [open, setOpen] = useState(false);
 
-           <div className='fixed z-10 hidden md:flex justify-between items-center bg-[#666262] w-full h-[9vh] px-4 md:px-8 lg:px-16 xl:px-24'>
-    <h1 className='text-xl font-bold'>EDWARD FAAKO YAKUBU</h1>
-    <nav>
-        <ul className='flex justify-center items-center space-x-4 md:space-x-6 lg:space-x-8'>
-            <li>
-                <button 
-                    onClick={() => onNavClick('/')}
-                    className='px-2 py-1 hover:text-gray-300 transition-colors'
-                >
-                    Home
-                </button>
-            </li>
-            <li>
-                <button 
-                    onClick={() => onNavClick('skills')}
-                    className='px-2 py-1 hover:text-gray-300 transition-colors'
-                >
-                    Skills
-                </button>
-            </li>
-            <li>
-                <button 
-                    onClick={() => onNavClick('experience')}
-                    className='px-2 py-1 hover:text-gray-300 transition-colors'
-                >
-                    Experience
-                </button>
-            </li>
-            <li>
-                <button 
-                    onClick={() => onNavClick('projects')}
-                    className='px-2 py-1 hover:text-gray-300 transition-colors'
-                >
-                    Projects
-                </button>
-            </li>
-            <li>
-                <button 
-                    onClick={() => onNavClick('contact')}
-                    className='px-2 py-1 hover:text-gray-300 transition-colors'
-                >
-                    Contact
-                </button>
-            </li>
-        </ul>
-    </nav>
-</div>
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
 
-            <div className="">
-                <nav>
-                    <ul className="flex lg:hidden md:hidden text-white bg-[#666262] w-[100vw] h-[9vh] justify-evenly items-center">
-                        <li
-                            className="relative"
-                            onMouseEnter={() => setHoveredIcon('Home')}
-                            onMouseLeave={() => setHoveredIcon('')}
-                        >
-                            <button className="text-white" onClick={() => onNavClick('/')}>
-                                <HomeIcon />
-                            </button>
-                            {hoveredIcon === 'Home' && (
-                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
-                                    Home
-                                </span>
-                            )}
-                        </li>
-                        <li
-                            className="relative"
-                            onMouseEnter={() => setHoveredIcon('About')}
-                            onMouseLeave={() => setHoveredIcon('')}
-                        >
-                            <button className="text-white" onClick={() => onNavClick('about')}>
-                                <UserCog2Icon />
-                            </button>
-                            {hoveredIcon === 'About' && (
-                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
-                                    About
-                                </span>
-                            )}
-                        </li>
-                        <li
-                            className="relative"
-                            onMouseEnter={() => setHoveredIcon('Skills')}
-                            onMouseLeave={() => setHoveredIcon('')}
-                        >
-                            <button className="text-white" onClick={() => onNavClick('skills')}>
-                                <Wrench />
-                            </button>
-                            {hoveredIcon === 'Skills' && (
-                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
-                                    Skills
-                                </span>
-                            )}
-                        </li>
-                        <li
-                            className="relative"
-                            onMouseEnter={() => setHoveredIcon('Experience')}
-                            onMouseLeave={() => setHoveredIcon('')}
-                        >
-                            <button className="text-white" onClick={() => onNavClick('experience')}>
-                                <Briefcase />
-                            </button>
-                            {hoveredIcon === 'Experience' && (
-                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
-                                    Experience
-                                </span>
-                            )}
-                        </li>
-                        <li
-                            className="relative"
-                            onMouseEnter={() => setHoveredIcon('Projects')}
-                            onMouseLeave={() => setHoveredIcon('')}
-                        >
-                            <button className="text-white" onClick={() => onNavClick('projects')}>
-                                <Folder />
-                            </button>
-                            {hoveredIcon === 'Projects' && (
-                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
-                                    Projects
-                                </span>
-                            )}
-                        </li>
-                        <li
-                            className="relative"
-                            onMouseEnter={() => setHoveredIcon('Contact')}
-                            onMouseLeave={() => setHoveredIcon('')}
-                        >
-                            <button className="text-white" onClick={() => onNavClick('contact')}>
-                                <Phone />
-                            </button>
-                            {hoveredIcon === 'Contact' && (
-                                <span className="absolute top-12 left-1/2 transform -translate-x-1/2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
-                                    Contact
-                                </span>
-                            )}
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+      const sections = ['hero', ...NAV_LINKS.map((l) => l.id)];
+      let current = 'hero';
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= 120) current = id;
+      }
+      setActive(current);
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const goTo = (id) => {
+    setOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled || open
+          ? 'border-b border-line bg-[var(--nav-bg)] backdrop-blur-md'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 sm:h-[4.25rem] sm:px-8 lg:px-10">
+        <button
+          type="button"
+          onClick={() => goTo('hero')}
+          className="font-display text-base font-semibold tracking-tight text-ink transition hover:text-accent sm:text-lg"
+        >
+          EFY
+        </button>
+
+        <nav className="hidden items-center gap-1 md:flex">
+          {NAV_LINKS.map((link) => (
+            <button
+              key={link.id}
+              type="button"
+              onClick={() => goTo(link.id)}
+              className={`rounded-full px-3.5 py-2 font-sans text-sm transition ${
+                active === link.id ? 'text-accent' : 'text-muted hover:text-ink'
+              }`}
+            >
+              {link.label}
+            </button>
+          ))}
+          <ThemeToggle className="ml-2 !rounded-full" />
+        </nav>
+
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle className="!rounded-full" />
+          <button
+            type="button"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-ink"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
-    )
-}
+      </div>
 
-export default Navbar
+      {open && (
+        <nav className="border-t border-line bg-[var(--nav-bg)] backdrop-blur-md md:hidden">
+          <ul className="flex flex-col gap-1 px-5 py-3">
+            {NAV_LINKS.map((link) => (
+              <li key={link.id}>
+                <button
+                  type="button"
+                  onClick={() => goTo(link.id)}
+                  className={`w-full rounded-xl px-3 py-3 text-left font-sans text-sm ${
+                    active === link.id ? 'bg-accent-soft text-accent' : 'text-ink'
+                  }`}
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+    </header>
+  );
+};
+
+export default Navbar;

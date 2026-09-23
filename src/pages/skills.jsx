@@ -1,47 +1,55 @@
-import React from 'react'
+const SKILL_GROUPS = [
+  {
+    title: 'Design & CAD',
+    items: ['SolidWorks', 'AutoCAD', 'Mechanical Design', 'GD&T', 'DFM', 'DFA', 'CAD'],
+  },
+  {
+    title: 'Fabrication',
+    items: ['3D Printing', 'CNC Machining', 'Laser Cutting', 'Arc Welding', 'Power Tools', 'CAM'],
+  },
+  {
+    title: 'Electronics',
+    items: ['PCB Design', 'PCB Milling', 'Soldering', 'Arduino', 'KiCAD', 'FlatCAM'],
+  },
+  {
+    title: 'Software',
+    items: ['MATLAB', 'RD Works', 'Lightburn'],
+  },
+];
 
 const Skills = () => {
-    const skills = [
-        "CAD", "Mechanical Design", "Arc Welding", "3D Printing",
-        "Soldering", "CNC Machining", "Laser Cutting", "PCB Design",
-        "PCB Milling", "Power Tools Operation", "SolidWorks",
-        "KiCAD", "AutoCAD", "FlatCAM", "RD Works",
-        "Lightburn", "MATLAB", "Arduino", "DFM", "DFA", "GD&T", "CAM"
-    ];
+  return (
+    <div className="section-shell">
+      <div className="mb-12 max-w-2xl">
+        <p className="section-label mb-3">Capabilities</p>
+        <h2 className="section-title">Tools of the trade</h2>
+        <div className="spec-rule mt-5 max-w-[8rem]" />
+        <p className="mt-4 text-muted">
+          From parametric modeling to CAM and shop practices — a full stack for mechanical design.
+        </p>
+      </div>
 
-    return (
-        <div className="px-6 md:px-8 lg:px-12 ">
-            {/* Title Section */}
-            <div className="mb-10 md:mb-12 lg:mb-16">
-                <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                    SKILLS
-                </h1>
-                <div className="h-1 w-20 bg-orange-500 rounded-full"></div>
-            </div>
+      <div className="grid gap-8 sm:grid-cols-2">
+        {SKILL_GROUPS.map((group) => (
+          <div key={group.title}>
+            <h3 className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
+              {group.title}
+            </h3>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {group.items.map((skill) => (
+                <li
+                  key={skill}
+                  className="border border-line bg-[var(--surface-elevated)] px-3 py-2 font-sans text-sm text-ink transition hover:border-accent hover:text-accent"
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-            {/* Skills Grid - Optimized for md and lg screens */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
-                {skills.map((skill, index) => (
-                    <div 
-                        key={index} 
-                        className="relative group overflow-hidden rounded-lg"
-                    >
-                        {/* Skill Card */}
-                        <div className="relative z-10 h-full w-full bg-[#1a1a1a] border border-gray-700 text-white 
-                            flex items-center justify-center p-4 text-center text-sm md:text-base lg:text-md
-                            transition-all duration-300 group-hover:border-orange-500 group-hover:bg-[#252525]
-                            group-hover:shadow-lg group-hover:shadow-orange-500/10">
-                            {skill}
-                        </div>
-                        
-                        {/* Hover Effect */}
-                        <div className="absolute inset-0 bg-orange-500 opacity-0 
-                            group-hover:opacity-10 transition-opacity duration-300"></div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    )
-}
-
-export default Skills
+export default Skills;
