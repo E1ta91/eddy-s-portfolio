@@ -8,7 +8,7 @@ const Navbar = ({ onNavClick }) => {
         <div className=' flex justify-center items-center pt-0 md:pt-10'>
 
            <div className='fixed z-10 hidden md:flex justify-between items-center bg-[#666262] w-full h-[9vh] px-4 md:px-8 lg:px-16 xl:px-24'>
-    <h1 className='text-xl font-bold'>FAAKO</h1>
+    <h1 className='text-xl font-bold'>EDWARD FAAKO YAKUBU</h1>
     <nav>
         <ul className='flex justify-center items-center space-x-4 md:space-x-6 lg:space-x-8'>
             <li>

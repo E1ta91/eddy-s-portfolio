@@ -82,7 +82,7 @@ const Home = () => {
           <header className="bg-white rounded-lg shadow-2xl flex flex-col items-center space-y-4 p-6 mb-8">
             <img
               className="w-[160px] rounded-lg"
-              src={eds}
+              src={ME}
               alt="Yakubu Edward Faako"
             />
 
