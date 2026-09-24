@@ -52,16 +52,17 @@ const Home = () => {
             <div className="section-shell relative z-10 w-full">
               <div className="animate-fade-up max-w-xl">
                 <p className="section-label mb-4">Mechanical Design Engineer · Accra</p>
-
                 <h1 className="font-display text-[clamp(2.4rem,6.5vw,4.75rem)] font-semibold leading-[1.05] tracking-tight text-ink">
                   Edward Faako
                   <span className="block text-accent">Yakubu</span>
                 </h1>
 
-                <p className="mt-5 max-w-sm text-base leading-relaxed text-muted sm:text-lg">
-                  CAD, digital fabrication, and product development — from SolidWorks to the shop
-                  floor.
-                </p>
+                <div className="text-panel mt-5 w-full max-w-sm">
+                  <p className="text-base leading-relaxed text-muted sm:text-lg">
+                    CAD, digital fabrication, and product development — from SolidWorks to the shop
+                    floor.
+                  </p>
+                </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <button
