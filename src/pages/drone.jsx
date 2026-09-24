@@ -1,6 +1,12 @@
 import drones from '../assets/images/drones.png';
 import drone from '../assets/images/drone.jpg';
 import ProjectShell from '../components/ProjectShell';
+import ProjectImageCarousel from '../components/ProjectImageCarousel';
+
+const images = [
+  { src: drones, alt: 'Drone overview' },
+  { src: drone, alt: 'Drone close-up' },
+];
 
 const Drone = () => {
   return (
@@ -16,17 +22,9 @@ const Drone = () => {
         </p>
       </div>
 
-      <div className="mx-auto mb-16 flex max-w-5xl flex-col items-center justify-center gap-8 md:flex-row">
-        {[drones, drone].map((src, i) => (
-          <div key={i} className="w-full overflow-hidden border border-line md:w-1/2 lg:w-2/5">
-            <img
-              className="h-auto w-full object-cover transition duration-500 hover:scale-[1.03]"
-              src={src}
-              alt={i === 0 ? 'Drone overview' : 'Drone close-up'}
-            />
-          </div>
-        ))}
-      </div>
+      <p className="section-label mb-6 text-center">Gallery</p>
+
+      <ProjectImageCarousel images={images} />
 
       <div className="mx-auto max-w-4xl">
         <p className="section-label mb-6 text-center">Project details</p>

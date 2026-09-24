@@ -3,6 +3,7 @@ import plasticr2 from '../assets/images/plasticr2.jpg';
 import plasticr3 from '../assets/images/plasticr3.jpg';
 import plasticr4 from '../assets/images/plasticr4.jpg';
 import ProjectShell from '../components/ProjectShell';
+import ProjectImageCarousel from '../components/ProjectImageCarousel';
 
 const images = [
   { src: plasticr1, alt: 'Plastic recycling system overview' },
@@ -25,17 +26,9 @@ const Recycling = () => {
         </p>
       </div>
 
-      <div className="mx-auto mb-16 grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2">
-        {images.map((image) => (
-          <div key={image.alt} className="overflow-hidden border border-line bg-surface">
-            <img
-              className="h-full w-full object-contain p-4 transition duration-500 hover:scale-[1.03]"
-              src={image.src}
-              alt={image.alt}
-            />
-          </div>
-        ))}
-      </div>
+      <p className="section-label mb-6 text-center">Gallery</p>
+
+      <ProjectImageCarousel images={images} objectFit="contain" />
 
       <div className="mx-auto max-w-6xl">
         <p className="section-label mb-6">System details</p>

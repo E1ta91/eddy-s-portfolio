@@ -9,7 +9,7 @@ const ROLES = [
     title: 'Mechanical Technician',
     dates: 'Nov 2025 — Dec 2025',
     org: 'DuraPlast LTD, Accra — Ghana',
-    body: 'Used SolidWorks to create 3D models, 2D drawings, and technical documentation for mechanical and electrical components, conducting simulations and FEA to evaluate functionality and cost-effectiveness. Collaborated with cross-functional teams to meet customer and regulatory requirements, updated designs for performance and cost, managed documentation and version control, and stayed current with CAD and engineering practices.',
+    body: 'Maintained and repaired extrusion lines, molding equipment, and downstream machinery used in the production of PVC pipes, fittings, and storage tanks. Performed preventive maintenance, diagnosed mechanical faults, and restored equipment to minimize downtime on the shop floor. Assisted with die and mold changes, calibrated cutting and conveying systems, and supported operators with machine setup to meet product quality standards. Fabricated and repaired fixtures and tooling as needed, and followed plant safety and quality procedures throughout production.',
   },
   {
     title: 'Mechanical Engineer',

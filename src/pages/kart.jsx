@@ -7,19 +7,20 @@ import kart7 from '../assets/images/kart7.jpg';
 import kart8 from '../assets/images/kart8.jpg';
 import kart9 from '../assets/images/kart9.jpg';
 import ProjectShell from '../components/ProjectShell';
+import ProjectImageCarousel from '../components/ProjectImageCarousel';
+
+const images = [
+  { src: kart, alt: 'Isometric view of Recreational Buggy' },
+  { src: kart7, alt: 'Rear view of Recreational Buggy' },
+  { src: kart6, alt: 'Cutaway view of Recreational Buggy' },
+  { src: kart5, alt: 'Detailed cutaway view' },
+  { src: kart8, alt: 'Front view of Recreational Buggy' },
+  { src: kart9, alt: 'Skateboard chassis design' },
+  { src: kart2, alt: 'Alternative skin design' },
+  { src: kart3, alt: 'Chassis design with suspension' },
+];
 
 const Kart = () => {
-  const images = [
-    { src: kart, alt: 'Isometric view of Recreational Buggy' },
-    { src: kart7, alt: 'Rear view of Recreational Buggy' },
-    { src: kart6, alt: 'Cutaway view of Recreational Buggy' },
-    { src: kart5, alt: 'Detailed cutaway view' },
-    { src: kart8, alt: 'Front view of Recreational Buggy' },
-    { src: kart9, alt: 'Skateboard chassis design' },
-    { src: kart2, alt: 'Alternative skin design' },
-    { src: kart3, alt: 'Chassis design with suspension' },
-  ];
-
   return (
     <ProjectShell>
       <div className="mx-auto mb-10 max-w-3xl text-center">
@@ -34,18 +35,7 @@ const Kart = () => {
 
       <p className="section-label mb-6 text-center">Design process</p>
 
-      <div className="mx-auto mb-14 grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-        {images.map((image) => (
-          <div key={image.alt} className="overflow-hidden border border-line">
-            <img
-              className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
-              src={image.src}
-              alt={image.alt}
-              loading="lazy"
-            />
-          </div>
-        ))}
-      </div>
+      <ProjectImageCarousel images={images} />
 
       <div className="mx-auto max-w-5xl">
         <p className="section-label mb-6 text-center">Technical specifications</p>

@@ -8,20 +8,21 @@ import Carrear from '../assets/images/Carrear.png';
 import Cariso from '../assets/images/Cariso.png';
 import skateboard from '../assets/images/skateboard.png';
 import ProjectShell from '../components/ProjectShell';
+import ProjectImageCarousel from '../components/ProjectImageCarousel';
+
+const images = [
+  { src: Cariso, alt: 'Isometric view of EMPV' },
+  { src: Carrear, alt: 'Rear view of EMPV' },
+  { src: Carcut, alt: 'Cutaway view of EMPV' },
+  { src: Carcut2, alt: 'Detailed cutaway view' },
+  { src: Carfront, alt: 'Front view of EMPV' },
+  { src: skateboard, alt: 'Skateboard chassis design' },
+  { src: carskin, alt: 'Vehicle skin design' },
+  { src: carskin2, alt: 'Alternative skin design' },
+  { src: carfront, alt: 'Final front view' },
+];
 
 const Ecar = () => {
-  const images = [
-    { src: Cariso, alt: 'Isometric view of EMPV' },
-    { src: Carrear, alt: 'Rear view of EMPV' },
-    { src: Carcut, alt: 'Cutaway view of EMPV' },
-    { src: Carcut2, alt: 'Detailed cutaway view' },
-    { src: Carfront, alt: 'Front view of EMPV' },
-    { src: skateboard, alt: 'Skateboard chassis design' },
-    { src: carskin, alt: 'Vehicle skin design', fullWidth: true },
-    { src: carskin2, alt: 'Alternative skin design' },
-    { src: carfront, alt: 'Final front view' },
-  ];
-
   return (
     <ProjectShell>
       <div className="mx-auto mb-10 max-w-3xl text-center">
@@ -37,23 +38,7 @@ const Ecar = () => {
 
       <p className="section-label mb-6 text-center">Design process</p>
 
-      <div className="mx-auto mb-14 grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-        {images.map((image) => (
-          <div
-            key={image.alt}
-            className={`overflow-hidden border border-line ${
-              image.fullWidth ? 'sm:col-span-2 lg:col-span-3' : ''
-            }`}
-          >
-            <img
-              className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
-              src={image.src}
-              alt={image.alt}
-              loading="lazy"
-            />
-          </div>
-        ))}
-      </div>
+      <ProjectImageCarousel images={images} />
 
       <div className="mx-auto mb-14 max-w-5xl">
         <p className="section-label mb-6 text-center">Technical specifications</p>

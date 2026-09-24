@@ -7,10 +7,21 @@ import plasticr1 from '../assets/images/plasticr1.jpg';
 import shreder from '../assets/images/shreder.png';
 import Cariso from '../assets/images/Cariso.png';
 import kart from '../assets/images/kart.png';
+import amn1 from '../assets/images/amn1.png';
+import babytub1 from '../assets/images/babytub.1.png';
+import bike12 from '../assets/images/bike2.12.png';
+import untitled51 from '../assets/images/untitled.51.png';
+import v61 from '../assets/images/v61.png';
 
 
 const K = {
     PROJECTS: [
+        {
+            image: v61,
+            title: 'V6 Internal Combustion Engine',
+            path: '/v6-engine',
+            icon: <ArrowUpRight/>
+        },
         {
             image: print,
             title: ' 3D Belt Printer',
@@ -33,6 +44,30 @@ const K = {
             image: drone,
             title: 'Payload Transport Drone ',
             path: '/drone',
+            icon: <ArrowUpRight/>
+        },
+        {
+            image: amn1,
+            title: 'Aerial Mobility Network',
+            path: '/amn',
+            icon: <ArrowUpRight/>
+        },
+        {
+            image: babytub1,
+            title: 'Infant Emergency Carrier',
+            path: '/infant-carrier',
+            icon: <ArrowUpRight/>
+        },
+        {
+            image: bike12,
+            title: 'Urban Electric Scooter',
+            path: '/electric-bike',
+            icon: <ArrowUpRight/>
+        },
+        {
+            image: untitled51,
+            title: 'Electric Delivery Bike',
+            path: '/delivery-bike',
             icon: <ArrowUpRight/>
         },
         {

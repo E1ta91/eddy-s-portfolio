@@ -14,8 +14,8 @@ const ENGINE_SLIDE = {
   type: 'engine',
   title: 'V6 Internal Combustion Engine',
   subtitle:
-    'Scroll-driven assembly study — parts fly in from the sides and finish under Contact.',
-  path: '/projects',
+    'A full CAD assembly of a V6 engine — modeled part by part in SolidWorks, from block and heads to crank, pistons, and valvetrain.',
+  path: '/v6-engine',
 };
 
 const Projects = () => {
@@ -114,9 +114,10 @@ const Projects = () => {
               {project.subtitle && <p className="mt-3 text-muted">{project.subtitle}</p>}
 
               {isEngine ? (
-                <p className="btn-ghost mt-6 inline-flex cursor-default opacity-80">
-                  Assembled on scroll
-                </p>
+                <Link to={project.path} className="btn-ghost mt-6 inline-flex">
+                  View case study
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               ) : isExternal ? (
                 <a
                   href={project.path}

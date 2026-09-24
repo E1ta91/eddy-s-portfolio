@@ -3,8 +3,14 @@ import shredder3 from '../assets/images/shredder3.jpg';
 import shreder from '../assets/images/shreder.png';
 import shreder2 from '../assets/images/shreder2.png';
 import ProjectShell from '../components/ProjectShell';
+import ProjectImageCarousel from '../components/ProjectImageCarousel';
 
-const gallery = [shreder, shreder2, shredder1, shredder3];
+const images = [
+  { src: shreder, alt: 'Shredder component 1' },
+  { src: shreder2, alt: 'Shredder component 2' },
+  { src: shredder1, alt: 'Shredder component 3' },
+  { src: shredder3, alt: 'Shredder component 4' },
+];
 
 const Shredder = () => {
   return (
@@ -20,20 +26,9 @@ const Shredder = () => {
         </p>
       </div>
 
-      <div className="mb-16 flex flex-wrap justify-center gap-6">
-        {gallery.map((src, index) => (
-          <div
-            key={index}
-            className="w-full overflow-hidden border border-line sm:w-[45%] md:w-[30%] lg:w-[22%]"
-          >
-            <img
-              className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
-              src={src}
-              alt={`Shredder component ${index + 1}`}
-            />
-          </div>
-        ))}
-      </div>
+      <p className="section-label mb-6 text-center">Gallery</p>
+
+      <ProjectImageCarousel images={images} />
 
       <div className="mx-auto max-w-6xl space-y-8">
         <p className="section-label">Project details</p>
