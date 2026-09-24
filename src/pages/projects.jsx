@@ -19,7 +19,10 @@ const ENGINE_SLIDE = {
 };
 
 const Projects = () => {
-  const projects = [ENGINE_SLIDE, ...K.PROJECTS];
+  const projects = [
+    ENGINE_SLIDE,
+    ...K.PROJECTS.filter((project) => project.path !== ENGINE_SLIDE.path),
+  ];
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const { focusedSection } = useEngineDock();
