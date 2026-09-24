@@ -12,6 +12,8 @@ import babytub1 from '../assets/images/babytub.1.png';
 import bike12 from '../assets/images/bike2.12.png';
 import untitled51 from '../assets/images/untitled.51.png';
 import v61 from '../assets/images/v61.png';
+import es1 from '../assets/images/es1.png';
+import pixel from '../assets/images/pixel.png';
 
 
 const K = {
@@ -20,6 +22,18 @@ const K = {
             image: v61,
             title: 'V6 Internal Combustion Engine',
             path: '/v6-engine',
+            icon: <ArrowUpRight/>
+        },
+        {
+            image: es1,
+            title: 'Eco-fuel Cooking Stove',
+            path: '/eco-stove',
+            icon: <ArrowUpRight/>
+        },
+        {
+            image: pixel,
+            title: 'Pixel 6 Phone Case',
+            path: '/pixel-case',
             icon: <ArrowUpRight/>
         },
         {

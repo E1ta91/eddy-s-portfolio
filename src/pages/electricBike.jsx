@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react';
 import bike12 from '../assets/images/bike2.12.png';
 import bike13 from '../assets/images/bike2.13.png';
 import bike14 from '../assets/images/bike2.14.png';
@@ -10,6 +11,10 @@ import bike20 from '../assets/images/bike2.20.png';
 import bike21 from '../assets/images/bike2.21.png';
 import ProjectShell from '../components/ProjectShell';
 import ProjectImageCarousel from '../components/ProjectImageCarousel';
+
+const ElectricScooterHeroCanvas = lazy(
+  () => import('../components/engine/ElectricScooterHeroCanvas')
+);
 
 const images = [
   { src: bike12, alt: 'Electric scooter isometric overview' },
@@ -27,14 +32,35 @@ const images = [
 const ElectricBike = () => {
   return (
     <ProjectShell>
-      <div className="mx-auto mb-10 max-w-3xl text-center">
-        <p className="section-label mb-3">Case study</p>
-        <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-5xl md:text-6xl">
-          Urban Electric Scooter
-        </h1>
-        <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
-          A compact electric scooter shaped for Ghanaian city streets — powered by recycled EV
-          batteries so daily commuting stays clean, affordable, and built for local roads.
+      <div className="mx-auto mb-6 flex max-w-3xl flex-col items-center gap-4 text-center">
+        <div className="text-panel w-full max-w-2xl">
+          <p className="section-label mb-3">Case study</p>
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-5xl md:text-6xl">
+            Urban Electric Scooter
+          </h1>
+        </div>
+        <div className="text-panel w-full max-w-xl">
+          <p className="text-base leading-relaxed text-muted sm:text-lg">
+            A compact electric scooter shaped for Ghanaian city streets — powered by recycled EV
+            batteries so daily commuting stays clean, affordable, and built for local roads.
+          </p>
+        </div>
+      </div>
+
+      <div className="relative mb-14 min-h-[min(62svh,640px)] overflow-hidden border border-line bg-[var(--surface-elevated)]/40">
+        <Suspense
+          fallback={
+            <div className="flex h-full min-h-[min(62svh,640px)] w-full items-center justify-center">
+              <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">
+                Loading model…
+              </p>
+            </div>
+          }
+        >
+          <ElectricScooterHeroCanvas />
+        </Suspense>
+        <p className="pointer-events-none absolute bottom-4 left-1/2 z-10 w-max -translate-x-1/2 text-panel text-center font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
+          Move to tilt · Drag to rotate · Scroll to zoom
         </p>
       </div>
 

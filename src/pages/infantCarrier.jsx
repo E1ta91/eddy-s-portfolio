@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react';
 import babytub1 from '../assets/images/babytub.1.png';
 import babytub2 from '../assets/images/babytub.2.png';
 import babytub3 from '../assets/images/babytub.3.png';
@@ -9,6 +10,10 @@ import babytub8 from '../assets/images/babytub.8.png';
 import babytub11 from '../assets/images/babytub.11.png';
 import ProjectShell from '../components/ProjectShell';
 import ProjectImageCarousel from '../components/ProjectImageCarousel';
+
+const InfantCarrierHeroCanvas = lazy(
+  () => import('../components/engine/InfantCarrierHeroCanvas')
+);
 
 const images = [
   { src: babytub1, alt: 'Infant emergency carrier isometric overview' },
@@ -25,14 +30,35 @@ const images = [
 const InfantCarrier = () => {
   return (
     <ProjectShell>
-      <div className="mx-auto mb-10 max-w-3xl text-center">
-        <p className="section-label mb-3">Case study</p>
-        <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-5xl md:text-6xl">
-          Infant Emergency Carrier
-        </h1>
-        <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
-          A portable neonatal transport unit built for first response — keeping infants secure,
-          supported, and connected to oxygen and IV care when every minute matters.
+      <div className="mx-auto mb-6 flex max-w-3xl flex-col items-center gap-4 text-center">
+        <div className="text-panel w-full max-w-2xl">
+          <p className="section-label mb-3">Case study</p>
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-5xl md:text-6xl">
+            Infant Emergency Carrier
+          </h1>
+        </div>
+        <div className="text-panel w-full max-w-xl">
+          <p className="text-base leading-relaxed text-muted sm:text-lg">
+            A portable neonatal transport unit built for first response — keeping infants secure,
+            supported, and connected to oxygen and IV care when every minute matters.
+          </p>
+        </div>
+      </div>
+
+      <div className="relative mb-14 min-h-[min(62svh,640px)] overflow-hidden border border-line bg-[var(--surface-elevated)]/40">
+        <Suspense
+          fallback={
+            <div className="flex h-full min-h-[min(62svh,640px)] w-full items-center justify-center">
+              <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">
+                Loading model…
+              </p>
+            </div>
+          }
+        >
+          <InfantCarrierHeroCanvas />
+        </Suspense>
+        <p className="pointer-events-none absolute bottom-4 left-1/2 z-10 w-max -translate-x-1/2 text-panel text-center font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
+          Move to tilt · Drag to rotate · Scroll to zoom
         </p>
       </div>
 

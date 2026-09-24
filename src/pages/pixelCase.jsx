@@ -1,41 +1,22 @@
 import { Suspense, lazy } from 'react';
-import kart from '../assets/images/kart.png';
-import kart2 from '../assets/images/kart2.png';
-import kart3 from '../assets/images/kart3.png';
-import kart5 from '../assets/images/kart5.jpg';
-import kart6 from '../assets/images/kart6.jpg';
-import kart7 from '../assets/images/kart7.jpg';
-import kart8 from '../assets/images/kart8.jpg';
-import kart9 from '../assets/images/kart9.jpg';
 import ProjectShell from '../components/ProjectShell';
-import ProjectImageCarousel from '../components/ProjectImageCarousel';
 
-const KartHeroCanvas = lazy(() => import('../components/engine/KartHeroCanvas'));
+const PixelCaseHeroCanvas = lazy(() => import('../components/engine/PixelCaseHeroCanvas'));
 
-const images = [
-  { src: kart, alt: 'Isometric view of Recreational Buggy' },
-  { src: kart7, alt: 'Rear view of Recreational Buggy' },
-  { src: kart6, alt: 'Cutaway view of Recreational Buggy' },
-  { src: kart5, alt: 'Detailed cutaway view' },
-  { src: kart8, alt: 'Front view of Recreational Buggy' },
-  { src: kart9, alt: 'Skateboard chassis design' },
-  { src: kart2, alt: 'Alternative skin design' },
-  { src: kart3, alt: 'Chassis design with suspension' },
-];
-
-const Kart = () => {
+const PixelCase = () => {
   return (
     <ProjectShell>
       <div className="mx-auto mb-6 flex max-w-3xl flex-col items-center gap-4 text-center">
         <div className="text-panel w-full max-w-2xl">
           <p className="section-label mb-3">Case study</p>
           <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-5xl md:text-6xl">
-            Recreational Buggy for Ghanaian Roads
+            Pixel 6 Phone Case
           </h1>
         </div>
         <div className="text-panel w-full max-w-xl">
           <p className="text-base leading-relaxed text-muted sm:text-lg">
-            A recreational buggy tailored for the unique conditions of Ghanaian roads.
+            A protective case designed around the Pixel 6 silhouette — phone and shell assemble on
+            load, then open into a live 3D model you can inspect from every angle.
           </p>
         </div>
       </div>
@@ -45,21 +26,14 @@ const Kart = () => {
           fallback={
             <div className="flex h-full min-h-[min(62svh,640px)] w-full items-center justify-center">
               <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">
-                Loading model…
+                Loading assembly…
               </p>
             </div>
           }
         >
-          <KartHeroCanvas />
+          <PixelCaseHeroCanvas />
         </Suspense>
-        <p className="pointer-events-none absolute bottom-4 left-1/2 z-10 w-max -translate-x-1/2 text-panel text-center font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
-          Move to tilt · Drag to rotate · Scroll to zoom
-        </p>
       </div>
-
-      <p className="section-label mb-6 text-center">Design process</p>
-
-      <ProjectImageCarousel images={images} />
 
       <div className="mx-auto max-w-5xl">
         <p className="section-label mb-6 text-center">Technical specifications</p>
@@ -70,15 +44,16 @@ const Kart = () => {
             </h2>
             <div className="md:col-span-3">
               <p className="mb-4 text-muted">
-                Engineered for durability, efficiency, and affordability — addressing transport needs
-                while promoting sustainable mobility in Ghana.
+                Modeled as separate phone and case bodies that seat together in a short assembly
+                sequence, then hand off to a finished assembly for interactive review — useful for
+                checking fit, camera cutouts, and edge protection.
               </p>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {[
-                  ['Chassis', 'Robust tubular design optimized for rough terrains'],
-                  ['Powertrain', '200cc 4-stroke engine'],
-                  ['Interior', 'Single-seat, driver-focused layout'],
-                  ['Maintenance', 'Designed for easy local repair and production'],
+                  ['Parts', 'pixel6.glb phone body + case1.glb shell'],
+                  ['Assembly', '8s timed join of phone and case bodies'],
+                  ['Handoff', 'Crossfade into interactive pixel_6.1.glb'],
+                  ['Tools', 'SolidWorks CAD exported to GLB for web review'],
                 ].map(([title, body]) => (
                   <div key={title} className="border border-line bg-canvas p-4">
                     <h3 className="mb-1 font-display font-semibold text-accent">{title}</h3>
@@ -94,4 +69,4 @@ const Kart = () => {
   );
 };
 
-export default Kart;
+export default PixelCase;

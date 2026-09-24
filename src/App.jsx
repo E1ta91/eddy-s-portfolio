@@ -10,6 +10,8 @@ import InfantCarrier from './pages/infantCarrier';
 import ElectricBike from './pages/electricBike';
 import DeliveryBike from './pages/deliveryBike';
 import V6Engine from './pages/v6Engine';
+import EcoStove from './pages/ecoStove';
+import PixelCase from './pages/pixelCase';
 import ProjectsPage from './pages/projectsPage';
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
     { path: 'electric-bike', element: <ElectricBike /> },
     { path: 'delivery-bike', element: <DeliveryBike /> },
     { path: 'v6-engine', element: <V6Engine /> },
+    { path: 'eco-stove', element: <EcoStove /> },
+    { path: 'pixel-case', element: <PixelCase /> },
   ]);
 
   return <RouterProvider router={router} />;
