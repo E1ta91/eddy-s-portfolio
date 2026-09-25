@@ -14,10 +14,12 @@ import EcoStove from './pages/ecoStove';
 import PixelCase from './pages/pixelCase';
 import ProjectsPage from './pages/projectsPage';
 import ScrollToTop from './components/ScrollToTop';
+import Seo from './components/Seo';
 
 function RootLayout() {
   return (
     <>
+      <Seo />
       <ScrollToTop />
       <Outlet />
     </>

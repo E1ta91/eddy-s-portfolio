@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://faako.netlify.app/sitemap.xml
